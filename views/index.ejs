@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Incluímos los estilos css necesarios -->
+        <%- include('fragments/css.ejs') %>
+        <title>ExpressJsBase</title>
+    </head>
+    <body>
+        <!-- Navbar del sitio -->
+        <%- include('fragments/navbar') %>
+        <!-- Fin del navbar del sitio -->
+
+        <!-- Contenido principal -->
+        <div class="container">
+            <div class="card border-0 shadow my-5">
+                <div class="card-body p-5">
+                    <h1 class="fw-light">Página principal</h1>
+                    <p class="lead">Hola soy un parte de una estructura para trabajar con expressJs</p>
+                    <!-- Contenido de las cards de la página principal -->
+
+                    <!-- Fin del contenido de las cards de la página principal -->
+                    <div style="height: 700px"></div>
+                    <p class="lead mb-0">Acá va el footer!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del contenido principal -->
+
+        <!-- Incluímos los scripts de javascript necesarios -->
+        <%- include('fragments/js.ejs') %>
+    </body>
+</html>
