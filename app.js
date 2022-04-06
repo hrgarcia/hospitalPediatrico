@@ -5,7 +5,6 @@ const path = require("path");
 const morgan = require("morgan");
 const app = express();
 const myRouter = require("./routes/myRouter");
-
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
