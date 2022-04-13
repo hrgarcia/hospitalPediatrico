@@ -1,33 +1,17 @@
-const OneModel = require("../models/adminModel");
+//const OneModel = require("../models/myModel");
 const moment = require("moment");
-
-//Peticion POST para inicio de sesion
-exports.login = (req, res) => {
-    console.log("hola");
-    console.log(req.body.password);
-    adminModel.find(
-        { user: req.body.user, password: req.body.password },
-        function (err, docs) {
-            if (docs == undefined) {
-                console.log("ingresa otra vez");
-            }
-        }
-    );
+const bcrypt = require("bcrypt");
+//Ejemplo de respuesta a una petición de tipo GET
+exports.logine = (req, res) => {
+    console.log("password: " + req.body.password);
+    bcrypt.hash(req.body.password,10,(err, hash) => {
+        console.log(hash);
+        });
+    // OneModel.find({user: req.body.user, password: req.body.password },(err, docs) => {
+    //         if (docs == undefined) {
+    //             console.log("ingresa otra vez");
+    //         }
+    //         res.send("USER:" + req.body.user);
+    //     }
+    // );
 };
-
-//let sql = `SELECT contraseña FROM usuarios WHERE usuario = ?`;
-
-//db.query(sql, [req.body.usuario], (err, data, fields) => {
-// if (err) throw err;
-
-// bcrypt.compare(contraseña, data[0].contraseña, function (err, result) {
-// if (err) throw err;
-// if (result == true) {
-//     creado = true;
-//res.redirect("/videoclub");
-// } else {
-//     creado = false;
-//     //res.redirect("/login");
-//         }
-//    //});
-// //});

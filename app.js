@@ -5,7 +5,6 @@ const path = require("path");
 const morgan = require("morgan");
 const app = express();
 const myRouter = require("./routes/myRouter");
-const adminRouter = require("./routes/adminRouter");
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
@@ -19,6 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 //Agrego un enrutador compatible
+app.use("/login",myRouter);
 app.use("/", myRouter);
-app.use("/login",adminRouter);
+
 module.exports = app;
