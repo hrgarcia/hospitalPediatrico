@@ -3,6 +3,7 @@
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
+const cloudinary = require('cloudinary').v2
 const app = express();
 const myRouter = require("./routes/myRouter");
 //Defino el motor de plantillas a utilizar
