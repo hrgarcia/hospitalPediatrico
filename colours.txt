@@ -1,0 +1,3 @@
+azul: #30499B
+rojo: #DB3937
+verde: #70DB40
