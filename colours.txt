@@ -1,3 +1,3 @@
-azul: #30499B
+azul: #30499B ; #4b70e9 ; #3300c0
 rojo: #DB3937
 verde: #70DB40

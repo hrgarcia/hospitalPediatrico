@@ -129,7 +129,7 @@ a:hover {
   display: inline-block;
   text-decoration: none;
   border: 1px solid var(--border-color);
-  color:  #70DB40;
+  color: #3300c0;
   pointer-events: auto;
   font-weight: var(--font-weight-semibold);
   line-height: 40px;
@@ -149,7 +149,7 @@ a:hover {
 .custom-link::before {
   content: attr(data-hover);
   background-color: var(--border-color);
-  color:  #70DB40;
+  color:  #3300c0;
   position: absolute;
   top: 100%;
   bottom: 0;
@@ -166,7 +166,11 @@ a:hover {
 b,
 strong {
   font-weight: var(--font-weight-bold);
-  color: #DB3937;
+  color: #ffffff;
+ 
+}
+.sombra{
+  text-shadow: 1px 1px 1px black;
 }
 
 /*---------------------------------------
@@ -632,7 +636,7 @@ strong {
 }
 
 .reviews-carousel .owl-item.active.center .reviews-thumb {
-  background: var(--dark-color);
+  background: rgb(162, 166, 184);
 }
 
 .reviews-carousel .owl-item.active.center .reviews-thumb,
@@ -758,7 +762,7 @@ strong {
 }
 
 .social-icon-link:hover {
-  color: #70DB40;
+  color: #3300c0;
 }
 
 /*---------------------------------------
