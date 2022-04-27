@@ -1,4 +1,4 @@
-const OneModel = require("../models/myModel");
+const Admin = require("../models/myModel");
 const moment = require("moment");
 
 //Ejemplo de respuesta a una petición de tipo GET
@@ -7,7 +7,7 @@ exports.inicio = (req, res) => {
     console.log("hola");
 };
 
-const msg = new adminSchema({
+const msg = new Admin({
     nombre:"admin",
     apellido:"1",
     usuario:"Admin1",
