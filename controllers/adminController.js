@@ -7,7 +7,7 @@ exports.logine = (req, res) => {
     bcrypt.hash(req.body.password,10,(err, hash) => {
         console.log(hash);
         });
-    // OneModel.find({user: req.body.user, password: req.body.password },(err, docs) => {
+    //OneModel.find({user: req.body.user, password: req.body.password },(err, docs) => {
     //         if (docs == undefined) {
     //             console.log("ingresa otra vez");
     //         }
