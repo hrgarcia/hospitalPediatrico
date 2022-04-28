@@ -16,10 +16,10 @@ const msg = new Admin({
     email:"adminhospital@gmail.com"
   })
 
-msg.save()
-   .then(doc => {
-     console.log(doc)
-   })
-   .catch(err => {
-     console.error(err)
-   })
+// msg.save()
+//    .then(doc => {
+//      console.log(doc)
+//    })
+//    .catch(err => {
+//      console.error(err)
+//   })

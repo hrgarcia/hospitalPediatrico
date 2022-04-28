@@ -16,6 +16,10 @@ exports.logine = (req, res) => {
     // );
 };
 
+exports.vista = (req,res)  => {
+    res.status(200).render("login");
+};
+
 exports.postear = (req,res)  => {
     res.status(200).render("postCreator");
 };
