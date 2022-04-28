@@ -914,7 +914,11 @@ strong {
   width: 100px;
   margin-left: -70px;
 }
-
+.botoninicio{
+  position: absolute;
+  margin-left: 175px;
+  background-color:#70DB40;
+}
 .logo-celu{
   height: 4px;
   width: 5px;

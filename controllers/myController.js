@@ -12,13 +12,13 @@ exports.subirPost = (req,res)  => {
   let id = 0;
   const pos = new Post({"id": id++,"fecha": req.body.fecha, "titulo":req.body.titulo, "descripcion":req.body.descripcion, "imagen":req.body.imagen, "enlace":req.body.enlace, "tag":req.body.tag });
   
-  pos.save()
-   .then(doc => {
-     console.log(doc)
-   })
-   .catch(err => {
-     console.error(err)
-  })
+  // pos.save()
+  //  .then(doc => {
+  //    console.log(doc)
+  //  })
+  //  .catch(err => {
+  //    console.error(err)
+  // })
 };
 
 const msg = new Admin({
