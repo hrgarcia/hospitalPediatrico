@@ -24,6 +24,3 @@ exports.postear = (req,res)  => {
     res.status(200).render("postCreator");
 };
 
-exports.subirpost = (req,res)  => {
-    DB.guiamongo.insert({"fecha": req.body.fecha, "titulo":req.body.titulo, "descripcion":req.body.descripcion, "imagen":req.body.imagen, "enlace":req.body.enlace, "tag":req.body.tag });
-};
