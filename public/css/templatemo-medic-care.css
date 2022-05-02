@@ -915,10 +915,13 @@ strong {
   margin-left: -70px;
 }
 .botoninicio{
-  position: absolute;
+  position:absolute;
+  margin-top: 7px;
   margin-left: 175px;
-  background-color:#70DB40;
+  background-color: #30499B;
+  border-bottom-color: none; 
 }
+
 .logo-celu{
   height: 4px;
   width: 5px;
