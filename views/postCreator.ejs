@@ -10,49 +10,111 @@
     <body>
         <%-include('fragments/navbar')%>
 
-        <form action="/nuevoPost" method="post">
-            <ul>
-                <li>
-                    <label class="letras" for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" />
-                </li>
-                <li>
-                    <label class="letras" for="titulo">Titulo:</label>
-                    <input type="text" id="titulo" name="titulo" />
-                </li>
-                <label class="letras" for="titulo">Descripcion:</label>
-                <div
-                    id=":ri"
-                    class="Am Al editable LW-avf tS-tW cuadro"
-                    hidefocus="true"
-                    aria-label="Cuerpo del mensaje"
-                    g_editable="true"
-                    role="textbox"
-                    aria-multiline="true"
-                    contenteditable="true"
-                    tabindex="1"
-                    style="direction: ltr; min-height: 266px"
-                    spellcheck="false"
-                >
-                    <br />
-                </div>
-                <li>
-                    <label class="letras" for="imagen">Imagen:</label>
-                    <input type="file" id="imagen" name="imagen" />
-                </li>
-                <li>
-                    <label class="letras" for="enlace">Enlace:</label>
-                    <input type="url" id="enlace" name="enlace" />
-                </li>
-                <li>
-                    <label class="letras" for="tag">Tag:</label>
-                    <input type="text" id="tag" name="tag" />
-                </li>
-                <li class="button">
-                    <button class="letras" type="submit">Subir</button>
-                </li>
-            </ul>
-        </form>
+        <div class="p-6 mb-4 rounded-2">
+            <div class="container-fluid formularioPost">
+                <form action="/nuevoPost" method="post">
+                    <span
+                        class="vnumgf obligatorio"
+                        id="i4"
+                        aria-label="Pregunta obligatoria"
+                    >
+                        *Obligatorio</span
+                    >
+                    <ul>
+                        <li>
+                            <label class="letras" for="titulo">Titulo:</label>
+                            <span
+                                class="vnumgf asteriscos"
+                                id="i4"
+                                aria-label="Pregunta obligatoria"
+                            >
+                                *</span
+                            >
+                            <input type="text" id="titulo" name="titulo" />
+                        </li>
+
+                        <label class="letras" for="titulo">Descripcion:</label>
+                        <span
+                            class="vnumgf"
+                            id="i4"
+                            aria-label="Pregunta obligatoria"
+                            style="margin-left: 10px"
+                        >
+                            *</span
+                        >
+                        <div
+                            id=":ri"
+                            class="Am Al editable LW-avf tS-tW cuadro"
+                            hidefocus="true"
+                            aria-label="Cuerpo del mensaje"
+                            g_editable="true"
+                            role="textbox"
+                            aria-multiline="true"
+                            contenteditable="true"
+                            tabindex="1"
+                            style="
+                                direction: ltr;
+                                background-color: #fff;
+                                min-height: 266px;
+                                min-width: 1000px;
+                            "
+                            spellcheck="false"
+                        >
+                            <br />
+                        </div>
+                        <li>
+                            <label class="letras" for="fecha">Fecha:</label>
+                            <span
+                                class="vnumgf asteriscos"
+                                id="i4"
+                                aria-label="Pregunta obligatoria"
+                            >
+                                *</span
+                            >
+                            <input type="date" id="fecha" name="fecha" />
+                        </li>
+                        <li>
+                            <label class="letras" for="imagen">Imagen:</label>
+                            <form
+                                action="/nuevoPost"
+                                method="post"
+                                enctype="multipart/form-data"
+                            >
+                                <input
+                                    type="file"
+                                    name="imagen"
+                                    style="background-color: #fff"
+                                />
+                            </form>
+                        </li>
+                        <li>
+                            <label class="letras" for="enlace">Enlace:</label>
+                            <input type="url" id="enlace" name="enlace" />
+                        </li>
+                        <span
+                            class="vnumgf"
+                            id="i3"
+                            aria-label="Pregunta obligatoria"
+                        >
+                            *Los tags deben estar separados por ","</span
+                        >
+                        <li>
+                            <label class="letras" for="tag">Tag:</label>
+                            <input type="text" id="tag" name="tag" />
+                        </li>
+                        <li class="button">
+                            <button
+                                type="button"
+                                class="btn"
+                                style="background-color: #30499b; color: #fff"
+                            >
+                                Subir
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
 
         <%-include('fragments/footer')%>
         <!-- footer-->

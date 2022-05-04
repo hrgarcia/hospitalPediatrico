@@ -3,8 +3,11 @@ form {
     width: 400px;
     margin-top: 75px;
     margin-bottom: 75px;
-    margin-left: 580px;
-    padding: 1em;
+}
+
+.vnumgf {
+    color: #d93025;
+    padding-left: 0.25em;
 }
 
 ul {
@@ -14,9 +17,9 @@ ul {
 }
 
 .letras {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: bold;
-    color:#30499B ;
+    color: #30499b;
 }
 
 form li + li {
@@ -36,13 +39,13 @@ textarea {
        Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
     font: 1em sans-serif;
     /* Tamaño uniforme del campo de texto */
-    width: 300px;
+    width: 1000px;
     box-sizing: border-box;
 
     /* Hacer coincidir los bordes del campo del formulario */
     border: 1px solid rgb(116, 116, 116);
 }
-.cuadro{
+.cuadro {
     border: 1px solid rgb(116, 116, 116);
 }
 
@@ -62,11 +65,27 @@ textarea {
 
 .button {
     /* Alinear los botones con los campos de texto */
-    padding-left: 90px; /* mismo tamaño que los elementos de la etiqueta */
+    padding-left: 400px; /* mismo tamaño que los elementos de la etiqueta */
 }
 
 button {
     /* Este margen adicional representa aproximadamente el mismo espacio que el espacio
        entre las etiquetas y sus campos de texto */
     margin-left: 1.5cm;
+}
+.obligatorio {
+    margin-left: -5px;
+}
+.asteriscos{
+    margin-left: -40px;
+}
+.formularioPost {
+    margin-left: 250px;
+    width: 1050px;
+    height: 680px;
+    padding-left: 20px;
+    background-color: rgb(224, 224, 224);
+}
+.textObligatorio {
+    width: 500px;
 }
