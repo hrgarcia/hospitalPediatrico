@@ -12,7 +12,7 @@ exports.logine = (req, res) => {
             if (resul) {
                 res.session = true;
                 login = res.session;
-                res.redirect("/", {login:login});
+                res.redirect("/");
             } else {
                 res.send("Contraseña y/o usuario incorrectos");
             }
