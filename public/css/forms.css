@@ -65,7 +65,7 @@ textarea {
 
 .button {
     /* Alinear los botones con los campos de texto */
-    padding-left: 400px; /* mismo tamaño que los elementos de la etiqueta */
+    padding-left: 245px; /* mismo tamaño que los elementos de la etiqueta 
 }
 
 button {
@@ -76,7 +76,7 @@ button {
 .obligatorio {
     margin-left: -5px;
 }
-.asteriscos{
+.asteriscos {
     margin-left: -40px;
 }
 .formularioPost {
@@ -84,7 +84,10 @@ button {
     width: 1050px;
     height: 680px;
     padding-left: 20px;
-    background-color: rgb(224, 224, 224);
+    background-color: rgba(224, 224, 224, 0.712);
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.26);
+    margin-bottom: 100px;
 }
 .textObligatorio {
     width: 500px;
