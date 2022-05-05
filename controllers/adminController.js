@@ -1,26 +1,28 @@
-//const OneModel = require("../models/myModel");
+const OneModel = require("../models/myModel");
 const moment = require("moment");
 const bcrypt = require("bcrypt");
-//Ejemplo de respuesta a una petición de tipo GET
-exports.logine = (req, res) => {
-    console.log("password: " + req.body.password);
-    bcrypt.hash(req.body.password,10,(err, hash) => {
-        console.log(hash);
-        });
-    //OneModel.find({user: req.body.user, password: req.body.password },(err, docs) => {
-    //         if (docs == undefined) {
-    //             console.log("ingresa otra vez");
-    //         }
-    //         res.send("USER:" + req.body.user);
-    //     }
-    // );
-};
+const { hash } = require("bcrypt");
 
-exports.vista = (req,res)  => {
+//respuesta a una petición de tipo post
+exports.logine = (req, res) => {
+    OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
+        bcrypt.compare(req.body.contraseña,bcrypt.hashSync(docs[0].contraseña, 5), (err, resul) => {
+            console.log(docs[0].contraseña);
+            if (err) throw err;
+            if (resul) {
+                res.session = true;
+                login = res.session;
+                res.redirect("/", {login:login});
+            } else {
+                res.send("Contraseña y/o usuario incorrectos");
+            }
+        });
+    });
+};
+exports.vista = (req, res) => {
     res.status(200).render("login");
 };
 
-exports.postear = (req,res)  => {
+exports.postear = (req, res) => {
     res.status(200).render("postCreator");
 };
-
