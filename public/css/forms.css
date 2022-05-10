@@ -62,7 +62,11 @@ textarea {
     /* Proporcionar espacio para escribir texto */
     height: 5em;
 }
-
+@media (min-width: 420px) and (max-width: px) {
+    .form {
+        width: 100px;
+    }
+}
 .button {
     /* Alinear los botones con los campos de texto */
     padding-left: 245px; /* mismo tamaño que los elementos de la etiqueta 

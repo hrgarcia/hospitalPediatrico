@@ -26,3 +26,6 @@ exports.vista = (req, res) => {
 exports.postear = (req, res) => {
     res.status(200).render("postCreator");
 };
+exports.postear2 = (req, res) => {
+    res.status(200).render("postPrueba");
+};
