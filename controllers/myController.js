@@ -1,10 +1,11 @@
 const Admin = require("../models/myModel");
 const moment = require("moment");
+let isLogin;
+let login;
 
 //Ejemplo de respuesta a una petición de tipo GET
 exports.inicio = (req, res) => {
-    res.status(200).render("index");
-    console.log("hola");
+res.status(200).render("index", { login:login});
 };
 
 const msg = new Admin({
