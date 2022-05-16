@@ -10,7 +10,7 @@
         <link href="/css/formPrueba.css" rel="stylesheet" />
     </head>
     <body>
-        <%-include('fragments/navbar')%>
+        <%-include('fragments/navbar',{ login:login})%>
 
         <div class="container">
             <form action="/nuevoPost"method="post">

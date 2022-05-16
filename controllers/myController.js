@@ -1,11 +1,12 @@
 const Admin = require("../models/myModel");
 const Post = require("../models/postModel");
 const moment = require("moment");
+let isLogin;
+let login;
 
 //Ejemplo de respuesta a una petición de tipo GET
 exports.inicio = (req, res) => {
-    res.status(200).render("index");
-    console.log("hola");
+res.status(200).render("index", { login:login});
 };
 
 exports.subirPost = (req,res)  => {

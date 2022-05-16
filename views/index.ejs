@@ -6,7 +6,7 @@
     <body id="top">
     <!-- navbar -->
         <main>
-            <%-include('fragments/navbar')%>
+            <%-include('fragments/navbar',{login:login})%>
 <!-- navbar -->
          <!-- carrousel -->
          <%-include('fragments/carrousel')%>
@@ -39,6 +39,19 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
-
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <% if(login){ %>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                text: "Bienvenido Administrador",
+                showConfirmButton: false,
+                timer: 1500,
+                width: 300,
+                padding: 0.5,
+            });
+        </script>
+        <%}%>
     </body>
 </html>
