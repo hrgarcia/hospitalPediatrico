@@ -30,7 +30,7 @@ exports.logine = (req, res) => {
                 isLogin = 2;
                 res.status(200).render("login", { isLogin : isLogin, login:login});
             }
-        );
+         });
     });
     }
  
