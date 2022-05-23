@@ -922,6 +922,14 @@ strong {
   border-bottom-color: none; 
 }
 
+.botonposteo{
+  position:absolute;
+  margin-top: 7px;
+  margin-left: 50px;
+  background-color: #30499B;
+  border-bottom-color: none; 
+}
+
 .logo-celu{
   height: 4px;
   width: 5px;
