@@ -19,7 +19,7 @@ mongoose
         console.log("Connected to database");
     });
 
-const port = 3500;
+const port = 3600;
 //Corremos el servidor en el puerto seleccionado
 app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto ${port} correctamente`);

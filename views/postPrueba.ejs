@@ -10,10 +10,10 @@
         <link href="/css/formPrueba.css" rel="stylesheet" />
     </head>
     <body>
-        <%-include('fragments/navbar',{ login:login})%>
+        <%-include('fragments/navbar', {login:login})%>
 
         <div class="container">
-            <form action="/nuevoPost"method="post">
+            <form action="/subirPost" method="post">
                 <span class="obligatorio">* Obligatorio</span>
                 <div class="row">
                     <div class="col-25">
@@ -48,15 +48,15 @@
                         <span class="obligatorio">*</span>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="lname" name="fecha"/>
+                        <input type="date" id="lname" name="fecha" />
                     </div>
                 </div>
                 <div class="row input-group">
                     <div class="col-25">
-                        <label for='files'>Select files</label>
+                        <label for="files">Select files</label>
                     </div>
                     <div class="col-75">
-                        <input id='files' type="file" multiple>
+                        <input id="files" type="file" multiple />
                     </div>
                 </div>
                 <div class="row">
@@ -71,14 +71,21 @@
                         />
                     </div>
                 </div>
-                <span class="obligatorio">Los tags deben estar separados por una ","</span>
+                <span class="obligatorio"
+                    >Los tags deben estar separados por una ","</span
+                >
                 <div class="row">
                     <div class="col-25">
                         <label class="letras" for="tag">Tag:</label>
                         <span class="obligatorio">*</span>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="tag" name="tag" placeholder="Agregar tags..."/>
+                        <input
+                            type="text"
+                            id="tag"
+                            name="tag"
+                            placeholder="Agregar tags..."
+                        />
                     </div>
                 </div>
                 <div class="row align-items-center">
