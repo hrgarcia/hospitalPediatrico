@@ -14,6 +14,7 @@ exports.vista = (req, res) => {
 };
 
 exports.logine = (req, res) => {
+<<<<<<< HEAD
     if (req.body.usuario == "Admin1") {
         OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
             bcrypt.compare(
@@ -40,6 +41,26 @@ exports.logine = (req, res) => {
     } else {
         isLogin = 3;
         res.status(200).render("login", { isLogin: isLogin, login: login });
+=======
+    if(req.body.usuario == "Admin1"){
+    
+    OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
+        bcrypt.compare(req.body.contraseña,bcrypt.hashSync(docs[0].contraseña, 5), (err, resul) => {
+            console.log(docs[0].contraseña);
+            if (err) throw err;
+            if (resul) {
+                res.session = true;
+                login =  res.session;
+                isLogin = 1;
+                res.status(200).render("index", {login:login});
+            } 
+            else {
+                isLogin = 2;
+                res.status(200).render("login", { isLogin : isLogin, login:login});
+            }
+        );
+    });
+>>>>>>> parent of 4f61376 (faltacorchete)
     }
 };
 
