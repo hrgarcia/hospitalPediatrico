@@ -5,7 +5,7 @@ const { hash } = require("bcrypt");
 const multer = require("multer");
 const upload = multer({ dest: "images/upload/" });
 
-let isLogin;
+global.isLogin = 0;
 global.login = false;
 //respuesta a una petición de tipo post
 
@@ -54,10 +54,22 @@ exports.logout = (req, res) => {
 };
 
 exports.postear = (req, res) => {
-    res.status(200).render("postCreator");
+    if(login){
+        res.status(200).render("postCreator");
+    }
+    else{
+        isLogin = 4
+        res.redirect("/"); //Hacer vista o algo con esto
+    }
 };
 exports.postear2 = (req, res) => {
-    res.status(200).render("postPrueba", { isLogin: isLogin, login: login });
+    if(login){
+        res.status(200).render("postPrueba", { isLogin: isLogin, login: login });
+    }
+    else{
+        isLogin = 4
+        res.redirect("/"); //Hacer vista o algo con esto
+    }
 };
 
 //Multer

@@ -53,5 +53,19 @@
             });
         </script>
         <%}%>
+        <% if(isLogin == 4){ %>
+            <script>
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    text: "Solo el administrador puede hacer esta acciones",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    width: 300,
+                    padding: 0.5,
+                });
+                
+            </script>
+            <%}%>
     </body>
 </html>
