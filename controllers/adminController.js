@@ -6,7 +6,7 @@ const multer = require("multer");
 const upload = multer({ dest: "images/upload/" });
 
 let isLogin;
-let login;
+global.login = false;
 //respuesta a una petición de tipo post
 
 exports.vista = (req, res) => {
@@ -47,8 +47,8 @@ exports.logout = (req, res) => {
     if (login) {
         res.redirect("/");
         req.session.destroy();
+        login = false
     } else {
-        login = false;
         res.redirect("/");
     }
 };
