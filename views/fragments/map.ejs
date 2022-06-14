@@ -19,8 +19,11 @@
             center: new Microsoft.Maps.Location(-31.39896246974225, -64.19744430043583),
             zoom: 16
         });
+        var marker = new Microsoft.Maps.Marker({position: center, map: myMap});
+
     }
+    
     </script>
-    <div id="myMap" class="map" div></div>
+    <div id="myMap" class="map" style="position:relative; width:100%; height:auto;"div></div>
 </body>
 </html>
