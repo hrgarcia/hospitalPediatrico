@@ -4,8 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>post</title>
+        <title>formularioPost</title>
         <%-include('fragments/head')%>
         <link href="/css/formPrueba.css" rel="stylesheet" />
     </head>
@@ -17,6 +16,7 @@
                 <span class="obligatorio">* Obligatorio</span>
                 <div class="row">
                     <div class="col-25">
+                        <i class="fa-solid fa-comment-medical"></i>
                         <label for="titulo">Titulo</label>
                         <span class="obligatorio">*</span>
                     </div>
@@ -24,12 +24,14 @@
                         <input
                             type="text"
                             name="titulo"
+                            id="titulo"
                             placeholder="Agrega un titulo.."
                         />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
+                        <i class="fa-solid fa-bars"></i>
                         <label for="descripcion">Descripcion</label>
                         <span class="obligatorio">*</span>
                     </div>
@@ -44,6 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
+                        <i class="fa-regular fa-calendar-check"></i>
                         <label for="fecha">Fecha</label>
                         <span class="obligatorio">*</span>
                     </div>
@@ -53,6 +56,7 @@
                 </div>
                 <div class="row input-group">
                     <div class="col-25">
+                        <i class="fa-regular fa-image"></i>
                         <label for="files">Select files</label>
                     </div>
                     <div class="col-75">
@@ -61,6 +65,7 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
+                        <i class="fa-solid fa-link"></i>
                         <label for="enlace">Enlace</label>
                     </div>
                     <div class="col-75">
@@ -76,6 +81,7 @@
                 >
                 <div class="row">
                     <div class="col-25">
+                        <i class="fa-solid fa-tag"></i>
                         <label class="letras" for="tag">Tag:</label>
                         <span class="obligatorio">*</span>
                     </div>
@@ -89,7 +95,7 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" id="submit" />
                 </div>
             </form>
         </div>
@@ -107,5 +113,26 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <script type="text/javascript">
+            const botonpress = document.getElementById("submit");
+            const tituloinp = document.getElementById("titulo");
+            const descripcioninp = document.getElementById("subject");
+            const fechainp = document.getElementById("lname");
+            const taginp = document.getElementById("tag");
+            botonpress.addEventListener("click", (e) => {
+                e.preventDefault();
+                // alert(tituloinpo.value);
+                //validacion de titulo
+                console.log("titulo" + validator.isEmpty(tituloinp.value));
+                //validacion descripcion
+                console.log(
+                    "descripcion" + validator.isEmpty(descripcioninp.value)
+                );
+                //validacion fecha
+                console.log("fecha" + validator.isEmpty(fechainp.value));
+                //validacion tag
+                console.log("tag" + validator.isEmpty(taginp.value));
+            });
+        </script>
     </body>
 </html>
