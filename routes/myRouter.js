@@ -9,4 +9,5 @@ router.route("/").get(myController.inicio);
 router.route("/login").get(adminController.vista).post(adminController.logine);
 router.route("/logout").get(adminController.logout);
 router.route("/subirPost").get(adminController.postear2);
+router.route("/*").get(adminController.error404);
 module.exports = router;

@@ -13,6 +13,11 @@ exports.vista = (req, res) => {
     res.status(200).render("login", { isLogin: isLogin, login: login });
 };
 
+//error404
+exports.error404 = (req, res) => {
+    res.status(200).render("error404");
+};
+
 exports.logine = (req, res) => {
     if (req.body.usuario == "Admin1") {
         OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
