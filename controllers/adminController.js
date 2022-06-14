@@ -53,6 +53,7 @@ exports.logout = (req, res) => {
     }
 };
 
+
 exports.postear = (req, res) => {
     if(login){
         res.status(200).render("postCreator");
