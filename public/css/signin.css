@@ -1,5 +1,5 @@
 body {
-    background: #f5f5f5;
+    background: #ffffff;
 }
 
 @media only screen and (max-width: 767px) {
@@ -13,23 +13,20 @@ body {
     margin: 120px auto;
     height: 400px;
     width: 500px;
-    -webkit-box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
 }
 
 .header-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
     font-family: url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);
 }
 
 .login-form .form-control {
-    margin-left:50px;
+    margin-left:30px;
     width: 350px;
     position: center;
     border-radius: 0;
-    position: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 
@@ -44,7 +41,7 @@ body {
 }
 
 .login-form .btn.btn-primary {
-    margin-left: 125px;
+    margin-left: 105px;
     border-radius: 3px;
     width: 200px;
     background:#30499B ;

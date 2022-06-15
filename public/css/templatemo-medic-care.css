@@ -810,7 +810,7 @@ strong {
 
   .navbar {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
   }
 
   .navbar-nav .nav-link {
@@ -914,20 +914,22 @@ strong {
   width: 100px;
   margin-left: -70px;
 }
+.botoncerrarsesion{
+  position:absolute;
+  margin-top: 7px;
+  margin-left: 105px;
+}
 .botoninicio{
   position:absolute;
   margin-top: 7px;
-  margin-left: 175px;
-  background-color: #30499B;
-  border-bottom-color: none; 
+  margin-left: 12px;
 }
 
 .botonposteo{
   position:absolute;
   margin-top: 7px;
-  margin-left: 50px;
-  background-color: #30499B;
-  border-bottom-color: none; 
+  margin-left: 15px;
+
 }
 
 .logo-celu{

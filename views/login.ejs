@@ -77,24 +77,21 @@
         </section>
 
         <% if(isLogin == 2){ %>
-            <script>
-           Swal.fire({
+        <script>
+        Swal.fire({
                 position: 'top-end',
                 icon: 'error',
                 text: 'Contraseña y/o usuarios incorrectos',
                 showConfirmButton: false,
                 timer: 1500,
                 width :300,
-                padding: 0.5
-              })
-
-
+                padding: 0.5  
+            })
             </script>
- 
-         <% } %>
-         <% if(isLogin == 3){ %>
+        <% } %>
+        <% if(isLogin == 3){ %>
             <script>
-           Swal.fire({
+        Swal.fire({
                 position: 'top-end',
                 icon: 'warning',
                 text: 'Ingrese los datos requeridos',
