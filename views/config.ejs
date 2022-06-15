@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config</title>
+    <link href="/css/formPrueba.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+    <%-include('fragments/admin')%>
+    <section class="seccion-perfil-usuario">
+        <div class="#">
+            <div class="perfil-usuario-portada">
+                <form action="/subirImagenes" enctype="multipart/form-data" method="post">
+                <div class="perfil-usuario-avatar"> 
+                    <div class="upload">
+                        <button type = "button" class = "boton-avatar">
+                          <i class = "fa fa-image"></i>
+                   
+                          <input type="file" accept="image/png,image/jpeg" name="file" id="files" onchange="loadFile(event)">
+                        </button>
+                    </div>
+                    <img id="output" alt="img-avatar" style="height: 100%;"> 
+                    <script>
+                        let loadFile = function(event){
+                            let image = document.getElementById('output');
+                            image.src = URL.createObjectURL(event.target.files[0]);
+                        }
+                    </script>
+                </div>       
+                </form>   
+            </div>
+        </div>
+
+    
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo">Administración</h3>
+            </div>
+
+            <div class="container">
+                <form class = "form-bonito" action="#" method="post">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="titulo">Cambiar usuario:</label>
+                        </div>
+                        <div class="col-75">
+                            <input
+                                type="text"
+                                name="usuario"
+                                placeholder="Nuevo usuario.."
+                            />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="descripcion">Cambiar contraseña:</label>
+                        </div>
+                        <div class="col-75">
+                            <input
+                            type="text"
+                            name="contraseña"
+                            placeholder="Nueva contraseña.."
+                        />
+                        </div>
+                    </div>
+                   
+                    <div class="row align-items-center">
+                        <input type="submit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+
+    </section>
+   
+
+<!--====  End of tarjeta  ====-->
+</body>
+
+</html>
