@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class="fa-solid fa-house-medical logo-sidebar"></i>
+      <span class="logo_name">Hospital Pediátrico</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/">
+          <i class="fa-solid fa-house logo-sidebar"></i>
+          <span class="link_name">Inicio</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Inicio</a></li>
+        </ul>
+      </li>
+
+      <li>
+
+        <a href="/seccionAdmin">
+          <i class="fa-solid fa-box-archive sidebar.close"></i>
+          <span class="link_name">Publicaciones</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Posts</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="/config">
+          <i class='bx bx-cog logo-sidebar' ></i>
+          <span class="link_name">Configuración</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Config</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="/images/reviews/beautiful-woman-face-portrait-brown-background.jpeg"  alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Admin</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">Sección Administrativa</span>
+    </div>
+  </section>
+  <script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
+  <script src="https://kit.fontawesome.com/6e2e3e8384.js" crossorigin="anonymous"></script>
+</body>
+</html>

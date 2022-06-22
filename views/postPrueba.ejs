@@ -12,7 +12,7 @@
         <%-include('fragments/navbar', {login:login})%>
 
         <div class="container">
-            <form action="/subirPost" method="post">
+            <form action="/posteo" method="post">
                 <span class="obligatorio">* Obligatorio</span>
                 <div class="row">
                     <div class="col-25">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <input type="submit" value="Submit" id="submit" />
+                    <input type="submit" value="Subir" id="subirPost">
                 </div>
             </form>
         </div>
@@ -113,6 +113,7 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript">
             const botonpress = document.getElementById("submit");
             const tituloinp = document.getElementById("titulo");
@@ -133,6 +134,22 @@
                 //validacion tag
                 console.log("tag" + validator.isEmpty(taginp.value));
             });
+        </script>
+
+        <script>
+            const subir = document.getElementById('subirPost');
+            subir.addEventListener('click',(e) =>{
+                e.preventDefault();
+                Swal.fire({
+                position: "top-end",
+                icon: "success",
+                text: "PublicaciÓn subida correctamente",
+                showConfirmButton: false,
+                timer: 1500,
+                width: 300,
+                padding: 0.5,
+            });
+            })
         </script>
     </body>
 </html>

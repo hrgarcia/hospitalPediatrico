@@ -1,4 +1,5 @@
 const OneModel = require("../models/myModel");
+const TwoModel = require("../models/postModel");
 const moment = require("moment");
 const bcrypt = require("bcrypt");
 const { hash } = require("bcrypt");
@@ -97,6 +98,30 @@ exports.postear2 = (req, res) => {
         isLogin = 4
         res.redirect("/"); //Hacer vista o algo con esto
     }
+};
+
+exports.seccionAdmin = (req, res) => {
+    res.status(200).render("edicionPosteos", {data:TwoModel.find()});
+};
+
+exports.config = (req, res) => {
+    res.status(200).render("config");
+};
+
+
+//Multer
+exports.subirPost = (req, res) => {
+    const pos = new Post({
+        id: id++,
+        fecha: req.body.fecha,
+        titulo: req.body.titulo,
+        descripcion: req.body.descripcion,
+        imagen: img,
+        enlace: req.body.enlace,
+        tag: req.body.tag,
+    });
+
+    res.status(200).render("edicionPosteos", {data:TwoModel.find()});
 };
 
 //Multer
