@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <input type="submit" value="Subir" id="subirPost">
+                    <input type="submit" value="Subir" id="subirPost" />
                 </div>
             </form>
         </div>
@@ -115,41 +115,53 @@
         ></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript">
-            const botonpress = document.getElementById("submit");
+            const botonpress = document.getElementById("subirPost");
             const tituloinp = document.getElementById("titulo");
             const descripcioninp = document.getElementById("subject");
             const fechainp = document.getElementById("lname");
             const taginp = document.getElementById("tag");
             botonpress.addEventListener("click", (e) => {
-                e.preventDefault();
-                // alert(tituloinpo.value);
-                //validacion de titulo
-                console.log("titulo" + validator.isEmpty(tituloinp.value));
-                //validacion descripcion
-                console.log(
-                    "descripcion" + validator.isEmpty(descripcioninp.value)
-                );
-                //validacion fecha
-                console.log("fecha" + validator.isEmpty(fechainp.value));
-                //validacion tag
-                console.log("tag" + validator.isEmpty(taginp.value));
-            });
-        </script>
+                // Validacion si los campos esnta vacios
 
-        <script>
-            const subir = document.getElementById('subirPost');
-            subir.addEventListener('click',(e) =>{
-                e.preventDefault();
-                Swal.fire({
-                position: "top-end",
-                icon: "success",
-                text: "PublicaciÓn subida correctamente",
-                showConfirmButton: false,
-                timer: 1500,
-                width: 300,
-                padding: 0.5,
+                if (
+                    validator.isEmpty(tituloinp.value) == true ||
+                    validator.isEmpty(descripcioninp.value) == true ||
+                    validator.isEmpty(fechainp.value) == true ||
+                    validator.isEmpty(taginp.value) == true
+                ) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "error",
+                        text: "Algunos campos obligatorios no estan siendo controlados",
+                        showConfirmButton: false,
+                        timer: 2500,
+                        width: 300,
+                        padding: 0.5,
+                    });
+                    e.preventDefault();
+                }
+                // Validacion si el tipo de dato es correcto
+                else if (
+                    validator.isAlphanumericLocals(
+                        tituloinp.value[{ lenguaje: "es-ES" }]
+                    ) == false ||
+                    validator.isAlphanumeric(
+                        descripcioninp.value[("es-ES", " ,-/!%&$()")]
+                    ) == false ||
+                    validator.isAlphanumeric(taginp.value, "es-ES", ",") == true
+                ) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "error",
+                        text: "Revisar el tipo de dato requerido en los campos obligatorios",
+                        showConfirmButton: false,
+                        timer: 2500,
+                        width: 300,
+                        padding: 0.5,
+                    });
+                    e.preventDefault();
+                }
             });
-            })
         </script>
     </body>
 </html>
