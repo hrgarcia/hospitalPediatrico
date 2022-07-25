@@ -126,66 +126,59 @@
             const descripcioninp = document.getElementById("subject");
             const fechainp = document.getElementById("lname");
             const taginp = document.getElementById("tag");
+            function swals(icon, textoError) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: icon,
+                    text: textoError,
+                    showConfirmButton: false,
+                    timer: 2500,
+                    width: 300,
+                    padding: 0.5,
+                });
+            }
             botonpress.addEventListener("click", (e) => {
                 // Validacion si los campos esnta vacios
-                let date = new Date();
-                let fechaactual = String(
-                    date.getFullYear() +
-                        "-" +
-                        String(date.getMonth() + 1).padStart(2, "0") +
-                        "-" +
-                        date.getDate()
-                ).padStart(2, "0");
-
-                "-" + console.log("actual " + fechaactual);
-                console.log("input " + fechainp.value);
                 if (
                     validator.isEmpty(tituloinp.value) == true ||
                     validator.isEmpty(descripcioninp.value) == true ||
                     validator.isEmpty(fechainp.value) == true ||
                     validator.isEmpty(taginp.value) == true
                 ) {
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "error",
-                        text: "Algunos campos obligatorios no estan siendo completados",
-                        showConfirmButton: false,
-                        timer: 2500,
-                        width: 300,
-                        padding: 0.5,
-                    });
+                    swals(
+                        "error",
+                        "algunos campos obligatorios no estan siendo completados"
+                    );
                     e.preventDefault();
                 }
                 // Validacion si el tipo de dato es correcto
                 else if (
-                    validator.isAlphanumeric(tituloinp.value) == false ||
-                    validator.isAlphanumeric(taginp.value) == false
+                    validator.isAlphanumeric(tituloinp.value, {
+                        ignore: "-",
+                    }) == false ||
+                    validator.isAlphanumeric(taginp.value, {
+                        ignore: "-",
+                    }) == false
                 ) {
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "error",
-                        text: "Revisar el tipo de dato requerido en los campos obligatorios",
-                        showConfirmButton: false,
-                        timer: 2500,
-                        width: 300,
-                        padding: 0.5,
-                    });
+                    swals(
+                        "error",
+                        "los tipos de datos pedidos no son los correctos"
+                    );
                     e.preventDefault();
                 } else if (
-                    validator.isLength(tituloinp.value[{ min: 10, max: 55 }]) ==
-                    false
+                    validator.isLength(tituloinp.value, {
+                        min: 10,
+                        max: 55,
+                    }) == false ||
+                    validator.isLength(tituloinp.value, {
+                        min: 10,
+                        max: 55,
+                    }) == false
                 ) {
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "error",
-                        text: "el titulo no cumple con los requisitos",
-                        showConfirmButton: false,
-                        timer: 2500,
-                        width: 300,
-                        padding: 0.5,
-                    });
+                    swals("error", "el titulo no cumple con los requisitos");
                     e.preventDefault();
                 }
+                e.preventDefault();
             });
         </script>
     </body>
