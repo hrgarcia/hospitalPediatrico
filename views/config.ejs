@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Config</title>
-    <link href="/css/formPrueba.css" rel="stylesheet" />
+    <link href="/css/Config.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/perfil.css">
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -16,26 +16,29 @@
     <section class="seccion-perfil-usuario">
         <div class="#">
             <div class="perfil-usuario-portada">
-                <form action="/subirImagenes" enctype="multipart/form-data" method="post">
-                <div class="perfil-usuario-avatar"> 
-                    <div class="upload">
-                        <button type = "button" class = "boton-avatar">
-                          <i class = "fa fa-image"></i>
-                   
-                          <input type="file" accept="image/png,image/jpeg" name="file" id="files" onchange="loadFile(event)">
-                        </button>
-                    </div>
-                    <img id="output" alt="img-avatar" style="height: 100%;"> 
-                    <script>
-                        let loadFile = function(event){
-                            let image = document.getElementById('output');
-                            image.src = URL.createObjectURL(event.target.files[0]);
-                        }
-                    </script>
-                </div>       
-                </form>   
+
+                <form action="/cargarImagen" method="post" enctype="multipart/form-data">
+                    <div class="perfil-usuario-avatar">
+                        <div class="upload">
+                            <button type = "button" class = "boton-avatar">
+                              <i class = "fa fa-image"></i>    
+                                <input type="file" name="file" onchange="loadFile(event)" accept="image/png,image/jpeg">
+                            </button>
+                        </div>
+                 
+                <img src="/images/avatars/avatar.jpg" id="output" alt="img-avatar" style="height: 100%;">
+                <script>
+                    let loadFile = function(event){
+                        let image = document.getElementById('output');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                    }
+    
+                </script>      
             </div>
+            <input type="submit" value="Cargar" class="bajar"/>
+        </form> 
         </div>
+    </div>
 
     
         <div class="perfil-usuario-body">
@@ -71,7 +74,7 @@
                     </div>
                    
                     <div class="row align-items-center">
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Submit" class="cargar"/>
                     </div>
                 </form>
             </div>

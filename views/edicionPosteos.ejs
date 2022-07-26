@@ -14,18 +14,68 @@
         <title>Document</title>
     </head>
 
-    <%-include('fragments/admin')%>
+    <%-include('fragments/admin', {data:data})%>
 
     <body>
         <main>
             <ul>
                 <li class="publicacion">
-                    <div class="card" style="width: 50rem">
-                        <div class="card-body">
-                      
+                    <div class="row">
+                        <% for(let i=0; i<20; i++) { %> 
+                    
+                        <div class="col-12">
+                            <div class="card" style="width: 50rem">
+                                <div class="card-body">
+                                    <h5 class="card-title">Prueba</h5>
+                                    <p class="card-text">02-06-09</p>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                    >
+                                        Visualizar
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                    >
+                                        Editar
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger"
+                                    >
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+ 
+                        <% }; %>
                     </div>
                 </li>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </ul>
         </main>
 

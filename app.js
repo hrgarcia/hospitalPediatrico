@@ -8,6 +8,7 @@ const app = express();
 const myRouter = require("./routes/myRouter");
 const cors = require("cors");
 const session = require('express-session');
+const multer = require("multer");
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
@@ -28,6 +29,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+
 //Agrego un enrutador compatible
 app.use("/", myRouter);
 module.exports = app;
+
+app.use(multer({
+    storage: multer.diskStorage({
+        destination: './public/images/avatars',
+        limits: { fileSize: 10 * 1024 * 1024},
+        filename: function (req, file, cb){
+            cb( null, "avatar"+".jpg");
+        }
+    })
+}).single('file'));
+
+app.post('/cargarImagen', async(req,res)=>{
+    res.render("config");
+});

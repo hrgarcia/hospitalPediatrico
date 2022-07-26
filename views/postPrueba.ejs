@@ -9,18 +9,12 @@
         <link href="/css/formPrueba.css" rel="stylesheet" />
     </head>
     <body>
-        <%-include('fragments/navbar', {login:login})%>
+        <%-include('fragments/admin', {login:login})%>
 
         <div class="container">
-            <form action="/posteo" method="post">
+            <form action="/posteo" method="post" class="form-bonito">
                 <span class="obligatorio">* Obligatorio</span>
                 <div class="row">
-                    <span class="obligatorio" style="margin: top 20px"
-                        >El titulo solo puede contener letras y numeros <br />
-                        Minimo de caracteres: 10
-                        <br />
-                        Maximo de caracteres: 55
-                    </span>
                     <div class="col-25">
                         <i class="fa-solid fa-comment-medical"></i>
                         <label for="titulo">Titulo</label>
@@ -101,11 +95,11 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <input type="submit" value="Subir" id="subirPost" />
+                    <input type="submit" value="Subir" id="subirPost">
                 </div>
             </form>
         </div>
-        <%-include('fragments/footer')%>
+        
         <!-- footer-->
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
@@ -123,8 +117,8 @@
         <script type="text/javascript">
             const botonpress = document.getElementById("subirPost");
             const tituloinp = document.getElementById("titulo");
-            const descripcioninp = document.getElementById("subject");
-            const fechainp = document.getElementById("lname");
+            const descripcioninp = document.getElementById("descripcion");
+            const fechainp = document.getElementById("fecha");
             const taginp = document.getElementById("tag");
             function swals(icon, textoError) {
                 Swal.fire({
@@ -151,30 +145,8 @@
                     );
                     e.preventDefault();
                 }
-                // Validacion si el tipo de dato es correcto
-                else if (
-                    validator.isAlphanumeric(tituloinp.value, {
-                        ignore: "-",
-                    }) == false ||
-                    validator.isAlphanumeric(taginp.value, {
-                        ignore: "-",
-                    }) == false
-                ) {
-                    swals(
-                        "error",
-                        "los tipos de datos pedidos no son los correctos"
-                    );
-                    e.preventDefault();
-                } else if (
-                    validator.isLength(tituloinp.value, {
-                        min: 10,
-                        max: 55,
-                    }) == false ||
-                    validator.isLength(tituloinp.value, {
-                        min: 10,
-                        max: 55,
-                    }) == false
-                ) {
+                
+                if (validator.isLength(tituloinp.value,{ min: 10, max:55 }) == false) {
                     swals("error", "el titulo no cumple con los requisitos");
                     e.preventDefault();
                 }
