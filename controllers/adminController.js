@@ -20,7 +20,6 @@ exports.error404 = (req, res) => {
 };
 
 exports.logine = (req, res) => {
-<<<<<<< HEAD
     if (req.body.usuario == "Admin1") {
         OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
             bcrypt.compare(
@@ -47,26 +46,6 @@ exports.logine = (req, res) => {
     } else {
         isLogin = 3;
         res.status(200).render("login", { isLogin: isLogin, login: login });
-=======
-    if(req.body.usuario == "Admin1"){
-    
-    OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
-        bcrypt.compare(req.body.contraseña,bcrypt.hashSync(docs[0].contraseña, 5), (err, resul) => {
-            console.log(docs[0].contraseña);
-            if (err) throw err;
-            if (resul) {
-                res.session = true;
-                login =  res.session;
-                isLogin = 1;
-                res.status(200).render("index", {login:login});
-            } 
-            else {
-                isLogin = 2;
-                res.status(200).render("login", { isLogin : isLogin, login:login});
-            }
-        );
-    });
->>>>>>> parent of 4f61376 (faltacorchete)
     }
 };
 
@@ -74,40 +53,39 @@ exports.logout = (req, res) => {
     if (login) {
         res.redirect("/");
         req.session.destroy();
-        login = false
+        login = false;
     } else {
         res.redirect("/");
     }
 };
 
-
 exports.postear = (req, res) => {
-    if(login){
+    if (login) {
         res.status(200).render("postCreator");
-    }
-    else{
-        isLogin = 4
+    } else {
+        isLogin = 4;
         res.redirect("/"); //Hacer vista o algo con esto
     }
 };
 exports.postear2 = (req, res) => {
-    if(login){
-        res.status(200).render("postPrueba", { isLogin: isLogin, login: login });
-    }
-    else{
-        isLogin = 4
+    if (login) {
+        res.status(200).render("postPrueba", {
+            isLogin: isLogin,
+            login: login,
+        });
+    } else {
+        isLogin = 4;
         res.redirect("/"); //Hacer vista o algo con esto
     }
 };
 
 exports.seccionAdmin = (req, res) => {
-    res.status(200).render("edicionPosteos", {data:TwoModel.find()});
+    res.status(200).render("edicionPosteos", { data: TwoModel.find() });
 };
 
 exports.config = (req, res) => {
     res.status(200).render("config");
 };
-
 
 //Multer
 exports.subirPost = (req, res) => {
@@ -121,7 +99,7 @@ exports.subirPost = (req, res) => {
         tag: req.body.tag,
     });
 
-    res.status(200).render("edicionPosteos", {data:TwoModel.find()});
+    res.status(200).render("edicionPosteos", { data: TwoModel.find() });
 };
 
 //Multer
