@@ -9,18 +9,12 @@
         <link href="/css/formPrueba.css" rel="stylesheet" />
     </head>
     <body>
-        <%-include('fragments/navbar', {login:login})%>
+        <%-include('fragments/admin', {login:login})%>
 
         <div class="container">
-            <form action="/posteo" method="post">
+            <form action="/posteo" method="post" class="form-bonito">
                 <span class="obligatorio">* Obligatorio</span>
                 <div class="row">
-                    <span class="obligatorio" style="margin: top 20px"
-                        >El titulo solo puede contener letras y numeros <br />
-                        Minimo de caracteres: 10
-                        <br />
-                        Maximo de caracteres: 55
-                    </span>
                     <div class="col-25">
                         <i class="fa-solid fa-comment-medical"></i>
                         <label for="titulo">Titulo</label>
@@ -43,7 +37,7 @@
                     </div>
                     <div class="col-75">
                         <textarea
-                            id="descripcion"
+                            id="subject"
                             name="descripcion"
                             placeholder="Agrega una descripcion.."
                             style="height: 200px"
@@ -57,7 +51,7 @@
                         <span class="obligatorio">*</span>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="fecha" name="fecha" />
+                        <input type="date" id="lname" name="fecha" />
                     </div>
                 </div>
                 <div class="row input-group">
@@ -101,11 +95,11 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <input type="submit" value="Subir" id="subirPost" />
+                    <input type="submit" value="Subir" id="subirPost">
                 </div>
             </form>
         </div>
-        <%-include('fragments/footer')%>
+        
         <!-- footer-->
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
@@ -158,20 +152,6 @@
                 }
                 e.preventDefault();
             });
-        //Validacion si el tipo de dato es correcto
-        //         if (
-        //             !validator.isAlphanumeric(tituloinp.value, {ignore: "-"}) ||
-        //             !validator.isAlphanumeric(taginp.value, {
-        //                 ignore: ","})
-        //         ) 
-        //         {
-        //             console.log ("caso dos")
-        //             swals(
-        //                 "error",
-        //                 "los tipos de datos pedidos no son los correctos"
-        //             );
-        //             e.preventDefault();
-        //         }
         </script>
     </body>
 </html>

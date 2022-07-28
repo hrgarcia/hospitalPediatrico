@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+  
     <link rel="stylesheet" href="/css/style.css">
-    <!-- Boxiocns CDN Link -->
+
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
   <div class="sidebar close">
     <div class="logo-details">
-      <i class="fa-solid fa-house-medical logo-sidebar"></i>
+      <a href="/">
+        <i class="fa-solid fa-house logo-sidebar"></i>
+        </a>
       <span class="logo_name">Hospital Pediátrico</span>
     </div>
     <ul class="nav-links">
+      
       <li>
-        <a href="/">
-          <i class="fa-solid fa-house logo-sidebar"></i>
-          <span class="link_name">Inicio</span>
+
+        <a href="/subirPost">
+          <i class='bx bxs-add-to-queue' ></i>
+          <span class="link_name">Crear publicaciones</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Inicio</a></li>
+          <li><a class="link_name" href="#">Crear</a></li>
         </ul>
       </li>
+
 
       <li>
 
@@ -49,12 +53,13 @@
       <li>
     <div class="profile-details">
       <div class="profile-content">
-        <img src="/images/reviews/beautiful-woman-face-portrait-brown-background.jpeg"  alt="profileImg">
+        <img src="/images/avatars/avatar.jpg" alt="profileImg">
       </div>
       <div class="name-job">
         <div class="profile_name">Admin</div>
       </div>
-      <i class='bx bx-log-out' ></i>
+      <a href="/logout">
+      <i class='bx bx-log-out'></a></i>
     </div>
   </li>
 </ul>

@@ -1,5 +1,6 @@
 .publicacion{
     margin-left: 9.5%;
+    margin-right: 9.5%;
     padding-top: 8%;
     padding-bottom: 8%;
     display: flex;
@@ -10,13 +11,17 @@
 .btn-primary{
     background-color: #30499B;
 }
-.publicacion h4{
+.publicacion p{
     color: #727272;
 }
 body{
     width: 100%;
     height: 100%;
     background-color:#f5f4f1;
+}
+
+.col-12{
+    margin-top: 20px;
 }
 
 @media (max-width: 400px) {
