@@ -30,7 +30,7 @@ const Post = new mongoose.Schema({
     },
     imagen: {
         type: String,
-        required: [true, "Tu post debe contar con una contraseña"],
+        required: [false, "Tu post debe contar con una imagen"],
     },
     enlace: {
         type: String,
@@ -39,7 +39,6 @@ const Post = new mongoose.Schema({
         type: String,
         lowercase: true,
         trim: true,
-        unique: true,
     },
 });
 
