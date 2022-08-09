@@ -57,12 +57,12 @@
                 <div class="row input-group">
                     <div class="col-25">
                         <i class="fa-regular fa-image"></i>
-                        <label for="file">Select files</label>
+                        <label for="image">Select image</label>
                     </div>
                     <div class="col-75">
-                        <input id="files" type="file" multiple name="img"/>
+                        <input id="image" type="file" name="image"/>
                     </div>
-                </div>
+                    
                 <div class="row">
                     <div class="col-25">
                         <i class="fa-solid fa-link"></i>
@@ -98,6 +98,18 @@
                     <input type="submit" value="Subir" id="subirPost">
                 </div>
             </form>
+            <form action="/guardarImagen" method="post" enctype="multipart/form-data">
+                <div class="perfil-usuario-avatar">
+                    <div class="upload">
+                        <button type = "button" class = "boton-avatar">   
+                            <input type="file" name="image"  accept="image/png,image/jpeg">
+                        </button>
+                    </div>
+                    <input type="submit" value="Cargar" class="bajar"/>
+                    </form>
+                    
+        </div>
+
         </div>
         
         <!-- footer-->

@@ -91,11 +91,11 @@ exports.config = (req, res) => {
 
 exports.subirPost = (req, res) => {
     const pos = new PostModel({
-        id: id++,
+        id:"2",
         fecha: new Date(req.body.fecha),
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
-        imagen: req.body.img,
+        imagen: ("./public/images/databaseimg/"+req.body.image),
         enlace: req.body.enlace,
         tags: req.body.tag,
     });
@@ -105,6 +105,6 @@ exports.subirPost = (req, res) => {
     }).catch(err => {
         console.error(err)
     })
-
+    console.log(req.body.image);
     res.status(200).render("edicionPosteos", {data:PostModel.find()});
 };
