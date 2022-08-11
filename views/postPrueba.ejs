@@ -12,7 +12,7 @@
         <%-include('fragments/admin', {login:login})%>
 
         <div class="container">
-            <form action="/posteo" method="post" class="form-bonito">
+            <form action="/postear" method="post" class="form-bonito">
                 <span class="obligatorio">* Obligatorio</span>
                 <div class="row">
                     <div class="col-25">
@@ -57,12 +57,12 @@
                 <div class="row input-group">
                     <div class="col-25">
                         <i class="fa-regular fa-image"></i>
-                        <label for="files">Select files</label>
+                        <label for="image">Select image</label>
                     </div>
                     <div class="col-75">
-                        <input id="files" type="file" multiple />
+                        <input id="image" type="file" name="image"/>
                     </div>
-                </div>
+                    
                 <div class="row">
                     <div class="col-25">
                         <i class="fa-solid fa-link"></i>
@@ -98,6 +98,18 @@
                     <input type="submit" value="Subir" id="subirPost">
                 </div>
             </form>
+            <form action="/guardarImagen" method="post" enctype="multipart/form-data">
+                <div class="perfil-usuario-avatar">
+                    <div class="upload">
+                        <button type = "button" class = "boton-avatar">   
+                            <input type="file" name="image"  accept="image/png,image/jpeg">
+                        </button>
+                    </div>
+                    <input type="submit" value="Cargar" class="bajar"/>
+                    </form>
+                    
+        </div>
+
         </div>
         
         <!-- footer-->
@@ -115,6 +127,8 @@
         ></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript">
+
+            //Validacion de los inputs del formulario para posteos
             const botonpress = document.getElementById("subirPost");
             const tituloinp = document.getElementById("titulo");
             const descripcioninp = document.getElementById("descripcion");
@@ -145,7 +159,7 @@
                     );
                     e.preventDefault();
                 }
-                
+                //validacion cantidad de caracteres del titulo
                 if (validator.isLength(tituloinp.value,{ min: 10, max:55 }) == false) {
                     swals("error", "el titulo no cumple con los requisitos");
                     e.preventDefault();

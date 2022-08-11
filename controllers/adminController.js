@@ -1,5 +1,5 @@
 const OneModel = require("../models/myModel");
-const TwoModel = require("../models/postModel");
+const PostModel = require("../models/postModel");
 const moment = require("moment");
 const bcrypt = require("bcrypt");
 const { hash } = require("bcrypt");
@@ -20,7 +20,7 @@ exports.error404 = (req, res) => {
 };
 
 exports.logine = (req, res) => {
-    if (req.body.usuario == "Admin1") {
+    if (req.body.usuario == "Doctor") {
         OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
             bcrypt.compare(
                 req.body.contraseña,
@@ -80,75 +80,44 @@ exports.postear2 = (req, res) => {
 };
 
 exports.seccionAdmin = (req, res) => {
+<<<<<<< HEAD
     res.status(200).render("edicionPosteos", { data: TwoModel.find() });
+=======
+    res.status(200).render("edicionPosteos", { data: PostModel.find() });
+>>>>>>> 924b276991999d2991671f34076a509b4cccf2ad
 };
 
 exports.config = (req, res) => {
     res.status(200).render("config");
 };
 
+<<<<<<< HEAD
 //Multer
+=======
+>>>>>>> 924b276991999d2991671f34076a509b4cccf2ad
 exports.subirPost = (req, res) => {
-    const pos = new Post({
-        id: id++,
-        fecha: req.body.fecha,
+    const pos = new PostModel({
+        id: "2",
+        fecha: new Date(req.body.fecha),
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
-        imagen: img,
+        imagen: "./public/images/databaseimg/" + req.body.image,
         enlace: req.body.enlace,
-        tag: req.body.tag,
+        tags: req.body.tag,
     });
+<<<<<<< HEAD
 
     res.status(200).render("edicionPosteos", { data: TwoModel.find() });
+=======
+    pos.save()
+        .then((doc) => {
+            console.log(doc);
+            console.log("cargado");
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    console.log(req.body.image);
+    res.status(200).render("edicionPosteos", { data: PostModel.find() });
+>>>>>>> 924b276991999d2991671f34076a509b4cccf2ad
 };
-
-//Multer
-// exports.subirPost=  upload.array('files'),(req, res, err) => {
-// FILE SIZE ERROR
-// if (err instanceof multer.MulterError) {
-//     return res.json("overToSize");
-// }
-
-// INVALID FILE TYPE, message will return from fileFilter callback
-// else if (err) {
-//     return res.json("invalidType");
-// }
-
-// SUCCESS
-// else {
-//     function getFileExtension(filename) {
-//         return /[.]/.exec(filename) ? /[^.]+$/.exec(filename)[0] : undefined;
-//     }
-
-//     let width = 800;
-//     let heigth = 600;
-
-//     let extension = getFileExtension(req.files.originalname);
-
-//     sharp(req.files.path)
-//         .resize(width, heigth)
-//         .toFile("images/upload" + "." + extension, (err) => {
-//             if (!err) {
-//                 let img = "imagen_" + "." + extension;
-//                 let id = 0;
-//                 const pos = new Post({
-//                     id: id++,
-//                     fecha: req.body.fecha,
-//                     titulo: req.body.titulo,
-//                     descripcion: req.body.descripcion,
-//                     imagen: img,
-//                     enlace: req.body.enlace,
-//                     tag: req.body.tag,
-//                 });
-//             }
-//         });
-// }
-
-// pos.save()
-//  .then(doc => {
-//    console.log(doc)
-//  })
-//  .catch(err => {
-//    console.error(err)
-// })
-// };
