@@ -20,7 +20,7 @@ exports.error404 = (req, res) => {
 };
 
 exports.logine = (req, res) => {
-    if (req.body.usuario == "Admin1") {
+    if (req.body.usuario == "Doctor") {
         OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
             bcrypt.compare(
                 req.body.contraseña,
@@ -53,58 +53,58 @@ exports.logout = (req, res) => {
     if (login) {
         res.redirect("/");
         req.session.destroy();
-        login = false
+        login = false;
     } else {
         res.redirect("/");
     }
 };
 
-
 exports.postear = (req, res) => {
-    if(login){
+    if (login) {
         res.status(200).render("postCreator");
-    }
-    else{
-        isLogin = 4
+    } else {
+        isLogin = 4;
         res.redirect("/"); //Hacer vista o algo con esto
     }
 };
 exports.postear2 = (req, res) => {
-    if(login){
-        res.status(200).render("postPrueba", { isLogin: isLogin, login: login });
-    }
-    else{
-        isLogin = 4
+    if (login) {
+        res.status(200).render("postPrueba", {
+            isLogin: isLogin,
+            login: login,
+        });
+    } else {
+        isLogin = 4;
         res.redirect("/"); //Hacer vista o algo con esto
     }
 };
 
 exports.seccionAdmin = (req, res) => {
-    res.status(200).render("edicionPosteos", {data:PostModel.find()});
+    res.status(200).render("edicionPosteos", { data: PostModel.find() });
 };
 
 exports.config = (req, res) => {
     res.status(200).render("config");
 };
 
-
-
 exports.subirPost = (req, res) => {
     const pos = new PostModel({
-        id:"2",
+        id: "2",
         fecha: new Date(req.body.fecha),
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
-        imagen: ("./public/images/databaseimg/"+req.body.image),
+        imagen: "./public/images/databaseimg/" + req.body.image,
         enlace: req.body.enlace,
         tags: req.body.tag,
     });
-    pos.save().then(doc => {
-        console.log(doc);
-        console.log ("cargado");
-    }).catch(err => {
-        console.error(err)
-    })
+    pos.save()
+        .then((doc) => {
+            console.log(doc);
+            console.log("cargado");
+        })
+        .catch((err) => {
+            console.error(err);
+        });
     console.log(req.body.image);
-    res.status(200).render("edicionPosteos", {data:PostModel.find()});
+    res.status(200).render("edicionPosteos", { data: PostModel.find() });
 };
