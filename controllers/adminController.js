@@ -80,21 +80,16 @@ exports.postear2 = (req, res) => {
 };
 
 exports.seccionAdmin = (req, res) => {
-<<<<<<< HEAD
     res.status(200).render("edicionPosteos", { data: TwoModel.find() });
-=======
     res.status(200).render("edicionPosteos", { data: PostModel.find() });
->>>>>>> 924b276991999d2991671f34076a509b4cccf2ad
 };
 
 exports.config = (req, res) => {
     res.status(200).render("config");
 };
 
-<<<<<<< HEAD
 //Multer
-=======
->>>>>>> 924b276991999d2991671f34076a509b4cccf2ad
+
 exports.subirPost = (req, res) => {
     const pos = new PostModel({
         id: "2",
@@ -105,10 +100,8 @@ exports.subirPost = (req, res) => {
         enlace: req.body.enlace,
         tags: req.body.tag,
     });
-<<<<<<< HEAD
 
     res.status(200).render("edicionPosteos", { data: TwoModel.find() });
-=======
     pos.save()
         .then((doc) => {
             console.log(doc);
@@ -119,5 +112,4 @@ exports.subirPost = (req, res) => {
         });
     console.log(req.body.image);
     res.status(200).render("edicionPosteos", { data: PostModel.find() });
->>>>>>> 924b276991999d2991671f34076a509b4cccf2ad
 };
