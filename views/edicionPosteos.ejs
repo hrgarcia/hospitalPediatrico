@@ -10,6 +10,7 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="/css/paginador.css" />
         <link rel="stylesheet" href="/css/edicionPosteos.css" />
         <title>Document</title>
     </head>
@@ -18,66 +19,99 @@
 
     <body>
         <main>
-            <ul>
-                <li class="publicacion">
-                    <div class="row">
-                        <% for(let i=0; i<20; i++) { %> 
-                    
-                        <div class="col-12">
-                            <div class="card" style="width: 50rem">
-                                <div class="card-body">
-                                    <h5 class="card-title">Prueba</h5>
-                                    <p class="card-text">02-06-09</p>
-                                    <button
-                                        type="button"
-                                        class="btn btn-primary"
-                                    >
-                                        Visualizar
-                                    </button>
-                                    <button
-                                        type="button"
-                                        class="btn btn-primary"
-                                    >
-                                        Editar
-                                    </button>
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger"
-                                    >
-                                        Eliminar
-                                    </button>
+
+
+            <li class="publicacion">
+                <div class="row">
+
+                    <ul id="paginated-list" data-current-page="1" aria-live="polite">
+                        <% for(let i=0; i<20; i++) { %>
+                           
+                            <li>
+                                <div class="col-12">
+                                    <div class="card" style="width: 50rem">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><%=i%>
+                                            </h5>
+                                            <p class="card-text"><%=i+1%></p>
+                                            <button type="button" class="btn btn-primary">
+                                                Visualizar
+                                            </button>
+                                            <button type="button" id="editar" onclick="editar()" class="btn btn-primary">
+                                                Editar
+                                            </button>
+                                            <button type="button" id="eliminar" onclick="cartel(data[e].id)" class="btn btn-danger">
+                                                Eliminar
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
- 
-                        <% }; %>
-                    </div>
-                </li>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
+                            </li>
+                            <% }; %>
+                         
                     </ul>
-                </nav>
-            </ul>
+
+                    <nav class="pagination-container">
+                        <button class="pagination-button" id="prev-button" aria-label="Previous page"
+                            title="Previous page">
+                            &lt;
+                        </button>
+
+                        <div id="pagination-numbers">
+
+                        </div>
+
+                        <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                            &gt;
+                        </button>
+                    </nav>
         </main>
+
+        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+        function cartel(encontrar) {
+            const btn = document.getElementById("eliminar")
+            btn.addEventListener('click', () => {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        PostModel.findOneAndDelete({id: encontrar}, function (err, docs) {
+                        if (err) {
+                            console.log(err)
+                        }
+                        else {
+                            console.log("Deleted post : ", docs);
+                        }
+                    });
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            })
+        }
+
+                function editar(){
+                    const btnE = document.getElementById("editar")
+            btnE.addEventListener('click', () => {
+                res.render("editPosteo");
+            })
+                   
+                }
+
+                </script>
+        <script src="js/edicionPosteos.js"></script>
+
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

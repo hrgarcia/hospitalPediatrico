@@ -3,11 +3,10 @@ const PostModel = require("../models/postModel");
 const moment = require("moment");
 const bcrypt = require("bcrypt");
 const { hash } = require("bcrypt");
-const multer = require("multer");
-const upload = multer({ dest: "images/upload/" });
 
 global.isLogin = 0;
 global.login = false;
+let id = 0;
 //respuesta a una petición de tipo post
 
 exports.vista = (req, res) => {
@@ -95,7 +94,7 @@ exports.postear2 = (req, res) => {
 };
 
 exports.seccionAdmin = (req, res) => {
-    res.status(200).render("edicionPosteos", { data: TwoModel.find() });
+   
     res.status(200).render("edicionPosteos", { data: PostModel.find() });
 };
 
@@ -103,11 +102,55 @@ exports.config = (req, res) => {
     res.status(200).render("config");
 };
 
-//Multer
+exports.user = (req, res) => {
+    if (login) {
+        res.status(200).render("user", { data: OneModel.find().limit(6) });
+    }
+    else {
+        isLogin = 4
+        res.redirect("/"); //Hacer vista o algo con esto
+    }
+};
+
+
+
+OneModel.find({ nombre: "admin" }).exec(function (err, books) {
+    if (err) throw err;
+
+    console.log(books);
+});
+
+//cambiamos la contraseña con la Query findOneAndUpdate.
+exports.ChangePassword = (req, res) => {
+    console.log("EMIPUTO");
+    if (login) {
+        OneModel.findOneAndUpdate({ nombre: "admin" },
+            { $set: { contraseña: req.body.contraseña } }, { new: true }, function (err, doc) {
+                if (err) console.log("Error ", err);
+                console.log("Updated Doc -> ", doc);
+                res.status(200).render("login", { isLogin: isLogin, login: login });
+            });
+
+
+    }
+};
+
+
+exports.ChangeUser = (req, res) => {
+    if (login) {
+        OneModel.findOneAndUpdate({ nombre: "admin" }, { $set: { usuario: req.body.usuario } }, { new: true }, function (err, doc) {
+            if (err) console.log("Error ", err);
+            console.log("Updated Doc -> ", doc);
+            res.status(200).render("login", { isLogin: isLogin, login: login });
+        });
+
+
+    }
+};
 
 exports.subirPost = (req, res) => {
     const pos = new PostModel({
-        id: "2",
+        id: id++,
         fecha: new Date(req.body.fecha),
         titulo: req.body.titulo,
         descripcion: req.body.descripcion,
@@ -116,7 +159,7 @@ exports.subirPost = (req, res) => {
         tags: req.body.tag,
     });
 
-    res.status(200).render("edicionPosteos", { data: TwoModel.find() });
+    res.status(200).render("edicionPosteos", { data: PostModel.find() });
     pos.save()
         .then((doc) => {
             console.log(doc);
@@ -128,3 +171,34 @@ exports.subirPost = (req, res) => {
     console.log(req.body.image);
     res.status(200).render("edicionPosteos", { data: PostModel.find() });
 };
+
+exports.edicion = (req, res) => {
+    res.status(200).render("editPosteo");
+};
+
+exports.editarPost = (req, res) => {
+    PostModel.findOneAndUpdate({ id: req.body.id }, {
+        $set: {
+            fecha: new Date(req.body.fecha),
+            titulo: req.body.titulo,
+            descripcion: req.body.descripcion,
+            imagen: "./public/images/databaseimg/" + req.body.image,
+            enlace: req.body.enlace,
+            tags: req.body.tag,
+        }
+    }, { new: true }, function (err, doc) {
+        if (err) console.log("Error ", err);
+        console.log("Updated Doc -> ", doc);
+        res.status(200).render("editPosteo");
+    });
+
+
+
+    res.status(200).render("editPosteo");
+
+};
+
+exports.visualizar = (req, res) => {
+    res.status(200).render("visualizarPost");
+};
+

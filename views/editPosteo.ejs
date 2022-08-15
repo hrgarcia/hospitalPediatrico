@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>formularioPost</title>
+        <%-include('fragments/head')%>
+        <link href="/css/formPrueba.css" rel="stylesheet" />
+    </head>
+    <body>
+        <%-include('fragments/admin', {login:login})%>
+
+        <div class="container">
+            <form action="/postear" method="post" class="form-bonito">
+                <span class="obligatorio">* Obligatorio</span>
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-comment-medical"></i>
+                        <label for="titulo">Editar titulo</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            name="titulo"
+                            id="titulo"
+                            placeholder="Agrega un titulo.."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-bars"></i>
+                        <label for="descripcion">Editar descripcion</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <textarea
+                            id="subject"
+                            name="descripcion"
+                            placeholder="Agrega una descripcion.."
+                            style="height: 200px"
+                        ></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <label for="fecha">Editar fecha</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="lname" name="fecha" />
+                    </div>
+                </div>
+                <div class="row input-group">
+                    <div class="col-25">
+                        <i class="fa-regular fa-image"></i>
+                        <label for="image">Editar Imagen</label>
+                    </div>
+                    <div class="col-75">
+                        <input id="image" type="file" name="image"/>
+                    </div>
+                    
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-link"></i>
+                        <label for="enlace">Editar enlace</label>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            name="enlace"
+                            placeholder="Agrega un enlace.."
+                        />
+                    </div>
+                </div>
+                <span class="obligatorio"
+                    >Los tags deben estar separados por una ","</span
+                >
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-tag"></i>
+                        <label class="letras" for="tag">Editar tags:</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            id="tag"
+                            name="tag"
+                            placeholder="Agregar tags..."
+                        />
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <input type="submit" value="Subir" id="subirPost">
+                </div>
+            </form>
+            <form action="/guardarImagen" method="post" enctype="multipart/form-data">
+                <div class="perfil-usuario-avatar">
+                    <div class="upload">
+                        <button type = "button" class = "boton-avatar">   
+                            <input type="file" name="image"  accept="image/png,image/jpeg">
+                        </button>
+                    </div>
+                    <input type="submit" value="Cargar" class="bajar"/>
+                    </form>
+                    
+        </div>
+
+        </div>
+        
+        <!-- footer-->
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/scrollspy.min.js"></script>
+        <script src="js/custom.js"></script>
+        <!-- JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript">
+
+            //Validacion de los inputs del formulario para posteos
+            const botonpress = document.getElementById("subirPost");
+            const tituloinp = document.getElementById("titulo");
+            const descripcioninp = document.getElementById("descripcion");
+            const fechainp = document.getElementById("fecha");
+            const taginp = document.getElementById("tag");
+            function swals(icon, textoError) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: icon,
+                    text: textoError,
+                    showConfirmButton: false,
+                    timer: 2500,
+                    width: 300,
+                    padding: 0.5,
+                });
+            }
+            botonpress.addEventListener("click", (e) => {
+                // Validacion si los campos esnta vacios
+                if (
+                    validator.isEmpty(tituloinp.value) == true ||
+                    validator.isEmpty(descripcioninp.value) == true ||
+                    validator.isEmpty(fechainp.value) == true ||
+                    validator.isEmpty(taginp.value) == true
+                ) {
+                    swals(
+                        "error",
+                        "algunos campos obligatorios no estan siendo completados"
+                    );
+                    e.preventDefault();
+                }
+                //validacion cantidad de caracteres del titulo
+                if (validator.isLength(tituloinp.value,{ min: 10, max:55 }) == false) {
+                    swals("error", "el titulo no cumple con los requisitos");
+                    e.preventDefault();
+                }
+                e.preventDefault();
+            });
+        </script>
+    </body>
+</html>
