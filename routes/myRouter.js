@@ -12,5 +12,8 @@ router.route("/subirPost").get(adminController.postear2);
 router.route("/seccionAdmin").get(adminController.seccionAdmin);
 router.route("/postear").post(adminController.subirPost);
 router.route("/config").get(adminController.config);
+router.route("/kinesiologia*").get(adminController.kinesiologia);
+router.route("/saludMental*").get(adminController.saludMental);
+router.route("/neumonologia*").get(adminController.neumonologia);
 router.route("/*").get(adminController.error404);
 module.exports = router;

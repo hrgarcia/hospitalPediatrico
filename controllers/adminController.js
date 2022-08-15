@@ -14,6 +14,21 @@ exports.vista = (req, res) => {
     res.status(200).render("login", { isLogin: isLogin, login: login });
 };
 
+//vista kinesiologia
+exports.kinesiologia = (req, res) => {
+    res.status(200).render("kinesiologia");
+};
+
+//vista salud mental
+exports.saludMental = (req, res) => {
+    res.status(200).render("saludMental");
+};
+
+//vista neumonologia
+exports.neumonologia = (req, res) => {
+    res.status(200).render("neumonologia");
+};
+
 //error404
 exports.error404 = (req, res) => {
     res.status(200).render("error404");
