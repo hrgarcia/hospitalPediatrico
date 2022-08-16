@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //Agrego un enrutador compatible
 app.use("/", myRouter);
 module.exports = app;
-//multer para imagen avatar
+
 app.use(
     multer({
         storage: multer.diskStorage({
