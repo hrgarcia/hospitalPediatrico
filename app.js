@@ -36,35 +36,33 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", myRouter);
 module.exports = app;
 
-app.use(
-    multer({
-        storage: multer.diskStorage({
-            destination: "./public/images/avatars",
-            limits: { fileSize: 10 * 1024 * 1024 },
-            filename: function (req, file, cb) {
-                cb(null, "avatar" + ".jpg");
-            },
-        }),
-    }).single("file")
-);
-
 app.post("/cargarImagen", async (req, res) => {
+    app.use(
+        multer({
+            storage: multer.diskStorage({
+                destination: "./public/images/avatars",
+                limits: { fileSize: 10 * 1024 * 1024 },
+                filename: function (req, file, cb) {
+                    cb(null, "avatar" + ".jpg");
+                },
+            }),
+        }).single("file")
+    );
     res.render("config");
 });
 
-//Multer para carga en DataBase
-app.use(
-    multer({
-        storage: multer.diskStorage({
-            destination: "./public/images/databaseimg",
-            limits: { fileSize: 10 * 1024 * 1024 },
-            filename: function (req, file, cb) {
-                cb(null, file.filename + ".jpg");
-            },
-        }),
-    }).single("image")
-);
-
 app.post("/guardarImagen", async (req, res) => {
-    res.render("config");
+    //Multer para carga en DataBase
+    app.use(
+        multer({
+            storage: multer.diskStorage({
+                destination: "./public/images/databaseimg",
+                limits: { fileSize: 10 * 1024 * 1024 },
+                filename: function (req, file, cb) {
+                    cb(null, file.filename + ".jpg");
+                },
+            }),
+        }).single("image")
+    );
+    res.render("index");
 });

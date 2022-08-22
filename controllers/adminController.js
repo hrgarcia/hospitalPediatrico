@@ -33,6 +33,11 @@ exports.error404 = (req, res) => {
     res.status(200).render("error404");
 };
 
+//vista contacto
+exports.contacto = (req, res) => {
+    res.status(200).render("contacto");
+};
+
 exports.logine = (req, res) => {
     if (req.body.usuario == "Doctor") {
         OneModel.find({ usuario: req.body.usuario }, (err, docs) => {
@@ -94,7 +99,6 @@ exports.postear2 = (req, res) => {
 };
 
 exports.seccionAdmin = (req, res) => {
-   
     res.status(200).render("edicionPosteos", { data: PostModel.find() });
 };
 
@@ -105,14 +109,11 @@ exports.config = (req, res) => {
 exports.user = (req, res) => {
     if (login) {
         res.status(200).render("user", { data: OneModel.find().limit(6) });
-    }
-    else {
-        isLogin = 4
+    } else {
+        isLogin = 4;
         res.redirect("/"); //Hacer vista o algo con esto
     }
 };
-
-
 
 OneModel.find({ nombre: "admin" }).exec(function (err, books) {
     if (err) throw err;
@@ -124,27 +125,37 @@ OneModel.find({ nombre: "admin" }).exec(function (err, books) {
 exports.ChangePassword = (req, res) => {
     console.log("EMIPUTO");
     if (login) {
-        OneModel.findOneAndUpdate({ nombre: "admin" },
-            { $set: { contraseña: req.body.contraseña } }, { new: true }, function (err, doc) {
+        OneModel.findOneAndUpdate(
+            { nombre: "admin" },
+            { $set: { contraseña: req.body.contraseña } },
+            { new: true },
+            function (err, doc) {
                 if (err) console.log("Error ", err);
                 console.log("Updated Doc -> ", doc);
-                res.status(200).render("login", { isLogin: isLogin, login: login });
-            });
-
-
+                res.status(200).render("login", {
+                    isLogin: isLogin,
+                    login: login,
+                });
+            }
+        );
     }
 };
 
-
 exports.ChangeUser = (req, res) => {
     if (login) {
-        OneModel.findOneAndUpdate({ nombre: "admin" }, { $set: { usuario: req.body.usuario } }, { new: true }, function (err, doc) {
-            if (err) console.log("Error ", err);
-            console.log("Updated Doc -> ", doc);
-            res.status(200).render("login", { isLogin: isLogin, login: login });
-        });
-
-
+        OneModel.findOneAndUpdate(
+            { nombre: "admin" },
+            { $set: { usuario: req.body.usuario } },
+            { new: true },
+            function (err, doc) {
+                if (err) console.log("Error ", err);
+                console.log("Updated Doc -> ", doc);
+                res.status(200).render("login", {
+                    isLogin: isLogin,
+                    login: login,
+                });
+            }
+        );
     }
 };
 
@@ -177,28 +188,29 @@ exports.edicion = (req, res) => {
 };
 
 exports.editarPost = (req, res) => {
-    PostModel.findOneAndUpdate({ id: req.body.id }, {
-        $set: {
-            fecha: new Date(req.body.fecha),
-            titulo: req.body.titulo,
-            descripcion: req.body.descripcion,
-            imagen: "./public/images/databaseimg/" + req.body.image,
-            enlace: req.body.enlace,
-            tags: req.body.tag,
+    PostModel.findOneAndUpdate(
+        { id: req.body.id },
+        {
+            $set: {
+                fecha: new Date(req.body.fecha),
+                titulo: req.body.titulo,
+                descripcion: req.body.descripcion,
+                imagen: "./public/images/databaseimg/" + req.body.image,
+                enlace: req.body.enlace,
+                tags: req.body.tag,
+            },
+        },
+        { new: true },
+        function (err, doc) {
+            if (err) console.log("Error ", err);
+            console.log("Updated Doc -> ", doc);
+            res.status(200).render("editPosteo");
         }
-    }, { new: true }, function (err, doc) {
-        if (err) console.log("Error ", err);
-        console.log("Updated Doc -> ", doc);
-        res.status(200).render("editPosteo");
-    });
-
-
+    );
 
     res.status(200).render("editPosteo");
-
 };
 
 exports.visualizar = (req, res) => {
     res.status(200).render("visualizarPost");
 };
-

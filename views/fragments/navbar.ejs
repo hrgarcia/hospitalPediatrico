@@ -1,82 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%-include('head')%>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
-        <div class="container">
-            <a class="navbar-brand mx-auto d-lg-none" href="#hero">
-                Programa de Asma Grave
-                <strong class="d-block">Hospital Pediátrico del Niño Jesús</strong>
-            </a>
-            <button
-                class="navbar-toggler collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <head>
+        <%-include('head')%>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand mx-auto d-lg-none" href="#hero">
+                    Programa de Asma Grave
+                    <strong class="d-block"
+                        >Hospital Pediátrico del Niño Jesús</strong
+                    >
+                </a>
+                <button
+                    class="navbar-toggler collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div
-                class="navbar-collapse collapse"
-                id="navbarNav"
-            >
-                
-                <img
-                src="images/logo.png"
-                class="animate__animated  animate__backInLeft img-fluid logo navbar-brand d-none d-lg-block " 
-                alt="get a vaccine"
-                title="get a vaccine for yourself"
-            />
-                    
+                <div class="navbar-collapse collapse" id="navbarNav">
+                    <img
+                        src="images/logo.png"
+                        class="animate__animated animate__backInLeft img-fluid logo navbar-brand d-none d-lg-block"
+                        alt="get a vaccine"
+                        title="get a vaccine for yourself"
+                    />
 
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active tipografi">
-                        <a class="nav-link" href="/">Inicio</a>
-                    </li>
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active tipografi">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">sobre</a>
-                    </li>            
-
-                    <a class="animate__animated animate__backInDown navbar-brand d-none d-lg-block">
-                        Programa de Asma Grave<strong class="d-block subtitule " style="color:white">Hospital Pediátrico del Niño Jesús</strong>
-                    </a>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/seccionAdmin"
-                            >Admin</a
-                        >
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#contact"
-                            >contacto</a
-                        >
-                    </li>
-                  
-                    <% if(login){ %>
                         <li class="nav-item">
-                            <button type="button" class="btn btn-outline-primary botoncerrarsesion"><a href="logout"
-                                >Cerrar sesion</a
-                            ></button>
-                    </li>
-                 <% } else{ %>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary botoninicio"><a href="login"
-                        >Ingresar</a
-                    ></button>
-                    
-                </li>
-                <%}%>
-                </ul>
+                            <a class="nav-link" href="#about">sobre</a>
+                        </li>
+
+                        <a
+                            class="animate__animated animate__backInDown navbar-brand d-none d-lg-block"
+                        >
+                            Programa de Asma Grave<strong
+                                class="d-block subtitule"
+                                style="color: white"
+                                >Hospital Pediátrico del Niño Jesús</strong
+                            >
+                        </a>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/seccionAdmin">Admin</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contacto.ejs"
+                                >contacto</a
+                            >
+                        </li>
+
+                        <% if(login){ %>
+                        <li class="nav-item">
+                            <button
+                                type="button"
+                                class="btn btn-outline-primary botoncerrarsesion"
+                            >
+                                <a href="logout">Cerrar sesion</a>
+                            </button>
+                        </li>
+                        <% } else{ %>
+                        <li class="nav-item">
+                            <button
+                                type="button"
+                                class="btn btn-outline-primary botoninicio"
+                            >
+                                <a href="login">Ingresar</a>
+                            </button>
+                        </li>
+                        <%}%>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</body>
+        </nav>
+    </body>
 </html>
