@@ -48,6 +48,10 @@ app.use(
     }).single("file")
 );
 
+app.post("/cargarImagen", async (req, res) => {
+    res.render("config");
+});
+
 //Multer para carga en DataBase
 app.use(
     multer({
@@ -55,15 +59,12 @@ app.use(
             destination: "./public/images/databaseimg",
             limits: { fileSize: 10 * 1024 * 1024 },
             filename: function (req, file, cb) {
-                cb(null, file.fieldname);
+                cb(null, file.filename + ".jpg");
             },
         }),
     }).single("image")
 );
 
-app.post("/cargarImagen", async (req, res) => {
-    res.render("config");
-});
 app.post("/guardarImagen", async (req, res) => {
     res.render("config");
 });
