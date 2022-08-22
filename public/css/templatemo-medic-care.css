@@ -9,6 +9,8 @@ https://templatemo.com/tm-566-medic-care
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
+@import url('https://fonts.googleapis.com/css2? family= Roboto:ital,wght@1,700 & display=swap');
+
 :root {
     --white-color: #ffffff;
     --section-bg-color: #f9f9f9;
@@ -543,7 +545,11 @@ strong {
 }
 
 .centrar-texto {
-    text-align: center;
+    text-align: left;
+}
+
+text-asma{
+    font-family: 'Roboto', sans-serif;
 }
 
 .text-right {
@@ -636,6 +642,11 @@ strong {
 /*---------------------------------------
   REVIEWS               
 -----------------------------------------*/
+
+.tipografi{
+    text-size-adjust:80%;
+}
+
 .reviews-thumb {
     margin-bottom: 0;
     padding: 32px;
