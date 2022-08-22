@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hsdjaks</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <%-include('fragments/head')%>
+    </head>
+    <div class="container">
+    <body>
+        <form action="post" method="post">
+                                <span class="obligatorio">* Obligatorio</span>
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-comment-medical"></i>
+                        <label for="titulo">Nombre</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            name="Nombre"
+                            id="Nombre"
+                            placeholder="Agrega tu nombre..."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-bars"></i>
+                        <label for="descripcion">Descripcion</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                     <input
+                            type="text"
+                            name="Apellido"
+                            id="Apellido"
+                            placeholder="Agrega tu apellido..."
+                        />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <label for="fecha">Fecha</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="lname" name="fecha" />
+                    </div>
+                </div>
+                <div class="row input-group">
+                    <div class="col-25">
+                        <i class="fa-regular fa-image"></i>
+                        <label for="image">Select image</label>
+                    </div>
+                    <div class="col-75">
+                        <input id="image" type="file" name="image"/>
+                    </div>
+                    
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-link"></i>
+                        <label for="enlace">Enlace</label>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            name="enlace"
+                            placeholder="Agrega un enlace.."
+                        />
+                    </div>
+                </div>
+                <span class="obligatorio"
+                    >Los tags deben estar separados por una ","</span
+                >
+                <div class="row">
+                    <div class="col-25">
+                        <i class="fa-solid fa-tag"></i>
+                        <label class="letras" for="tag">Tag:</label>
+                        <span class="obligatorio">*</span>
+                    </div>
+                    <div class="col-75">
+                        <input
+                            type="text"
+                            id="tag"
+                            name="tag"
+                            placeholder="Agregar tags..."
+                        />
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <input type="submit" value="Subir" id="subirPost">
+                </div>
+        </form>
+</div>
+    </body>
 </html>
