@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <%-include('fragments/head')%>
     </head>
     <div class="container">
     <body>
@@ -22,77 +21,70 @@
                             type="text"
                             name="Nombre"
                             id="Nombre"
-                            placeholder="Agrega tu nombre..."
+                            placeholder="Ingresa tu nombre..."
                         />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-25">
                         <i class="fa-solid fa-bars"></i>
-                        <label for="descripcion">Descripcion</label>
+                        <label for="apellido">Apellido</label>
                         <span class="obligatorio">*</span>
                     </div>
                     <div class="col-75">
                      <input
                             type="text"
-                            name="Apellido"
-                            id="Apellido"
+                            name="apellido"
+                            id="apellido"
                             placeholder="Agrega tu apellido..."
                         />
                     </div>
                 </div>
-                <div class="row">
+                                        <div class="row">
                     <div class="col-25">
-                        <i class="fa-regular fa-calendar-check"></i>
-                        <label for="fecha">Fecha</label>
+                        <i class="fa-solid fa-bars"></i>
+                        <label for="email">Correo electrónico</label>
                         <span class="obligatorio">*</span>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="lname" name="fecha" />
+                     <input
+                            type="text"
+                            name="correo"
+                            id="correo"
+                            placeholder="Ingresa tu correo electronico..."
+                        />
                     </div>
                 </div>
-                <div class="row input-group">
+                         <div class="row">
                     <div class="col-25">
-                        <i class="fa-regular fa-image"></i>
-                        <label for="image">Select image</label>
+                        <i class="fa-solid fa-bars"></i>
+                        <label for="telefono">Teléfono</label>
                     </div>
                     <div class="col-75">
-                        <input id="image" type="file" name="image"/>
+                     <input
+                            type="text"
+                            name="telefono"
+                            id="telefono"
+                            placeholder="Ingresa tu numero de telefono.."
+                        />
                     </div>
-                    
+                </div>
                 <div class="row">
                     <div class="col-25">
                         <i class="fa-solid fa-link"></i>
-                        <label for="enlace">Enlace</label>
+                        <label for="Consulta">Consulta</label>
                     </div>
                     <div class="col-75">
                         <input
                             type="text"
-                            name="enlace"
-                            placeholder="Agrega un enlace.."
+                            name="consulta"
+                            placeholder="Ingresa tu consulta..."
                         />
                     </div>
                 </div>
-                <span class="obligatorio"
-                    >Los tags deben estar separados por una ","</span
-                >
-                <div class="row">
-                    <div class="col-25">
-                        <i class="fa-solid fa-tag"></i>
-                        <label class="letras" for="tag">Tag:</label>
-                        <span class="obligatorio">*</span>
-                    </div>
-                    <div class="col-75">
-                        <input
-                            type="text"
-                            id="tag"
-                            name="tag"
-                            placeholder="Agregar tags..."
-                        />
-                    </div>
-                </div>
+
                 <div class="row align-items-center">
-                    <input type="submit" value="Subir" id="subirPost">
+                    <input type="submit" value="Subir" id="subirConsulta">
                 </div>
         </form>
 </div>
