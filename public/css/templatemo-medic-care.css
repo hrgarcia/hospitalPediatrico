@@ -682,6 +682,9 @@ strong {
     opacity: 0.45;
 }
 
+.delay-carousel{
+    transition-delay: 1s
+}
 .reviews-carousel .owl-item.active.center {
     opacity: 1;
 }
