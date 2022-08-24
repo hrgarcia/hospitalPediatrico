@@ -9,6 +9,7 @@ const myRouter = require("./routes/myRouter");
 const cors = require("cors");
 const session = require("express-session");
 const multer = require("multer");
+const nodemailer = require("nodemailer");
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
@@ -65,4 +66,44 @@ app.post("/guardarImagen", async (req, res) => {
         }).single("image")
     );
     res.render("index");
+});
+
+app.post("/contacto", async (req, res) => {
+    //Envio de mail de contacto
+    let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: "CASILLADECORREOX",
+            password: "PASSWORDX",
+        },
+    });
+
+    // send mail with defined transport object
+    let contenido = {
+        from: "jaguerodiaz@escuelaproa.edu.ar", // sender address
+        to: "jjgenio.com@gmail.com", // list of receivers
+        subject: req.body.nombre + req.body.apellido, // Subject line
+        text:
+            "consulta:" +
+            req.body.consulta +
+            "mail del paciente:" +
+            req.body.correo, // plain text body
+    };
+    transporter.sendmail(contenido, function (err, data) {
+        if (err) {
+            console.log(`error encontrado : ${err}`);
+        } else {
+            console.log(`Email enviado`);
+        }
+    });
+    app.use();
+    res.Swal.fire({
+        position: "top-end",
+        icon: succes,
+        text: "formulario enviado",
+        showConfirmButton: false,
+        timer: 2500,
+        width: 300,
+        padding: 0.5,
+    });
 });
