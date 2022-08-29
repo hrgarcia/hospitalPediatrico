@@ -678,6 +678,14 @@ strong {
     height: 70px !important;
 }
 
+.sombra-img{
+    border-radius: 10px;
+    box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+-webkit-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+-moz-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+
+}
+
 .reviews-carousel .owl-item {
     opacity: 0.45;
 }
