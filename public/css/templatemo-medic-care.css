@@ -9,7 +9,7 @@ https://templatemo.com/tm-566-medic-care
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
-@import url("https://fonts.googleapis.com/css2? family= Roboto:ital,wght@1,700 & display=swap");
+@import url('https://fonts.googleapis.com/css2? family= Roboto:ital,wght@1,700 & display=swap');
 
 :root {
     --white-color: #ffffff;
@@ -548,22 +548,22 @@ strong {
     text-align: left;
 }
 
-.text-asma {
-    font-family: "Open Sans", sans-serif;
+.text-asma{
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
-.imagen-position {
+.imagen-position{
     margin-left: 80px;
 }
-.texto1 {
-    position: absolute;
+.texto1{
+    position:absolute;
     top: 10px;
     left: 10%;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 22px;
-    color: #ff0000;
+    color:#ff0000;
 }
-.circle-position {
+.circle-position{
     margin-left: -60px;
 }
 
@@ -658,8 +658,8 @@ strong {
   REVIEWS               
 -----------------------------------------*/
 
-.tipografi {
-    text-size-adjust: 80%;
+.tipografi{
+    text-size-adjust:80%;
 }
 
 .reviews-thumb {
@@ -678,23 +678,32 @@ strong {
     height: 70px !important;
 }
 
-.sombra-img {
-    border-radius: 10px;
-    box-shadow: 16px 18px 29px -2px rgba(0, 0, 0, 0.42);
-    -webkit-box-shadow: 16px 18px 29px -2px rgba(0, 0, 0, 0.42);
-    -moz-box-shadow: 16px 18px 29px -2px rgba(0, 0, 0, 0.42);
+.grupo-asm{
+    box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -webkit-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -moz-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
 }
 
-.col-6 {
-    flex: auto;
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+
+}
+
+.sombra-img{
+    border-radius: 10px;
+    box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -webkit-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -moz-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+
 }
 
 .reviews-carousel .owl-item {
     opacity: 0.45;
 }
 
-.delay-carousel {
-    transition-delay: 1s;
+.delay-carousel{
+    transition-delay: 1s
 }
 .reviews-carousel .owl-item.active.center {
     opacity: 1;

@@ -5,30 +5,47 @@
         <title>Hospital Pediátrico del Niño Jesús</title>
     </head>
     <body id="top">
-    <!-- navbar -->
+        <!-- navbar -->
         <main>
             <%-include('fragments/navbar',{login:login})%>
-<!-- navbar -->
-         <!-- carrousel -->
-         <%-include('fragments/carrousel')%>
-<!-- carrousel -->
-<!-- about -->
-<%-include('fragments/about')%>
-<!-- about -->
-          
-<!-- gallery -->
-<%-include('fragments/gallery')%>
-<!-- gallery-->
-            
+            <!-- navbar -->
+            <!-- carrousel -->
+            <%-include('fragments/carrousel')%>
+            <!-- carrousel -->
+            <!-- about -->
+            <%-include('fragments/about')%>
+            <!-- about -->
 
-<!-- reviews -->
-<!-- <%-include('fragments/reviews')%> -->
-<!-- reviews-->
+            <!-- gallery -->
+            <%-include('fragments/gallery')%>
+            <!-- gallery-->
+
+            <!-- reviews -->
+            <!-- <%-include('fragments/reviews')%> -->
+            <!-- reviews-->
+
+            <div class="container">
+                <div class="row">
+
+                        <!-- contact -->
+                        <%-include('fragments/contact')%>
+                        <!-- contact -->
+                    
+                    <div class="col-sm-4 col-md-6 col-lg-4 map">
+                        <!-- map -->
+                        <img
+                            src="https://i.picsum.photos/id/108/200/300.jpg?hmac=66ukSMLRNm61ayt092vMAdSgvIRE5opr1Dj3kxCkC2c"
+                            alt=""
+                        />
+                        <!-- map -->
+                    </div>
+                </div>
+            </div>
         </main>
-<!-- footer-->
-<%-include('fragments/footer')%>
-<!-- footer-->
 
+        <!-- footer-->
+        <%-include('fragments/footer')%>
+        <!-- footer-->
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -54,20 +71,18 @@
                 padding: 0.5,
             });
         </script>
+        <%}%> <% if(isLogin == 4){ %>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                text: "Solo el administrador puede hacer esta acciones",
+                showConfirmButton: false,
+                timer: 1500,
+                width: 300,
+                padding: 0.5,
+            });
+        </script>
         <%}%>
-        <% if(isLogin == 4){ %>
-            <script>
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    text: "Solo el administrador puede hacer esta acciones",
-                    showConfirmButton: false,
-                    timer: 1500,
-                    width: 300,
-                    padding: 0.5,
-                });
-                
-            </script>
-            <%}%>
     </body>
 </html>
