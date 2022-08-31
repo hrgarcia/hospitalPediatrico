@@ -564,7 +564,7 @@ strong {
     color:#ff0000;
 }
 .circle-position{
-    margin-left: -60px;
+    position: static;
 }
 
 .text-right {
@@ -678,11 +678,23 @@ strong {
     height: 70px !important;
 }
 
+.grupo-asm{
+    box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -webkit-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -moz-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+}
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+
+}
+
 .sombra-img{
     border-radius: 10px;
     box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
--webkit-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
--moz-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -webkit-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
+    -moz-box-shadow: 16px 18px 29px -2px rgba(0,0,0,0.42);
 
 }
 
