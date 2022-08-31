@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/footer.css">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/footer.css" />
+    </head>
 
-<body>
-    <script type='text/javascript'
-            src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AqcB0nGFtpJ4G_FqucZVRZrjoYOVpPxTGfHz9XCEWlZ_pLKtDCjUuYqug9wOJ8CJ' 
-            async defer></script>
-    
-    <script type='text/javascript'>
-    function GetMap()
-    {
-        let map = new Microsoft.Maps.Map('#myMap', {
-            center: new Microsoft.Maps.Location(-31.39896246974225, -64.19744430043583),
-            zoom: 17    
-        });
-        let center = map.getCenter();
+    <body>
+        <h2 class="mb-lg-2 mb-7 centrar-texto">Ubicacion</h2>
+        <script
+            type="text/javascript"
+            src="http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AqcB0nGFtpJ4G_FqucZVRZrjoYOVpPxTGfHz9XCEWlZ_pLKtDCjUuYqug9wOJ8CJ"
+            async
+            defer
+        ></script>
 
-        let pin = new Microsoft.Maps.Pushpin(center, {
-            icon: 'images/marker.png',
-            anchor: new Microsoft.Maps.Point(5,86)
-        });
+        <script type="text/javascript">
+            function GetMap() {
+                let map = new Microsoft.Maps.Map("#myMap", {
+                    center: new Microsoft.Maps.Location(
+                        -31.39896246974225,
+                        -64.19744430043583
+                    ),
+                    zoom: 17,
+                });
+                let center = map.getCenter();
 
-        map.entities.push(pin);
-    }
-    
-    </script>
-    <div id="myMap" class="map" style="position:relative; width:100%; height:auto;"div></div>
-</body>
+                let pin = new Microsoft.Maps.Pushpin(center, {
+                    icon: "images/marker.png",
+                    anchor: new Microsoft.Maps.Point(5, 86),
+                });
+
+                map.entities.push(pin);
+            }
+        </script>
+        <div
+            id="myMap"
+            class="map"
+            style="position: relative; width: 100%; height: auto"
+            div
+        ></div>
+    </body>
 </html>
