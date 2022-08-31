@@ -14,11 +14,13 @@
     
 }
 
-.banner h2{
-    font-size: 3rem;
-    color: black;
-    background-color: white;
-    position: absolute;
-    left: 80.5%;
-    top: 76.1%;
+.heroTextTitleAreas{
+        position: relative;
+        background-color: white;
+        bottom: 100px;
+        width: 25%;
+        margin-bottom: -100px;
+        padding: 2rem;
+        color: #30499b;
+        text-shadow: 2px 1px 2px black;
 }
