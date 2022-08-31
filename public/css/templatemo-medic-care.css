@@ -564,7 +564,7 @@ strong {
     color:#ff0000;
 }
 .circle-position{
-    position: static;
+    margin-left: -60px;
 }
 
 .text-right {
