@@ -21,6 +21,7 @@ router.route("/visualizar").get(adminController.visualizar);
 router.route("/kinesiologia*").get(adminController.kinesiologia);
 router.route("/saludMental*").get(adminController.saludMental);
 router.route("/neumonologia*").get(adminController.neumonologia);
-router.route("/contacto").get(adminController.contacto)
+router.route("/contactForm").post(adminController.contactform);
+router.route("/contacto").get(adminController.contacto);
 router.route("/*").get(adminController.error404);
 module.exports = router;
