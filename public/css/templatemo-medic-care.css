@@ -555,14 +555,7 @@ strong {
 .imagen-position{
     margin-left: 80px;
 }
-.texto1{
-    position:absolute;
-    top: 10px;
-    left: 10%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 22px;
-    color:#ff0000;
-}
+
 .circle-position{
     margin-left: -60px;
 }
