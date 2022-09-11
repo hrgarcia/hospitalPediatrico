@@ -211,36 +211,6 @@ exports.editarPost = (req, res) => {
     res.status(200).render("editPosteo");
 };
 
-exports.contactform = (req, res) => {
-    //Envio de mail de contacto
-    let transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: "jaguerodiaz@escuelasproa.edu.ar",
-            password: "jere172901",
-        },
-    });
-
-    // send mail with defined transport object
-    let contenido = {
-        from: "jaguerodiaz@escuelaproa.edu.ar", // sender address
-        to: "jjgenio.com@gmail.com", // list of receivers
-        subject: req.body.nombre + req.body.apellido, // Subject line
-        text:
-            "consulta:" +
-            req.body.consulta +
-            "mail del paciente:" +
-            req.body.correo, // plain text body
-    };
-    transporter.sendmail(contenido, function (err, data) {
-        if (err) {
-            console.log(`error encontrado : ${err}`);
-        } else {
-            console.log(`Email enviado`);
-        }
-    });
-    res.render("index");
-};
 
 exports.visualizar = (req, res) => {
     res.status(200).render("visualizarPost");
