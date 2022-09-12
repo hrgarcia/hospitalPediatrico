@@ -98,8 +98,17 @@ exports.postear2 = (req, res) => {
     }
 };
 
+
 exports.seccionAdmin = (req, res) => {
-    res.status(200).render("edicionPosteos", { data: PostModel.find() });
+    PostModel.find(function(err, data) {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(data);
+            res.status(200).render("edicionPosteos", {data: data});
+        }
+    }); 
 };
 
 exports.config = (req, res) => {
@@ -183,35 +192,29 @@ exports.subirPost = (req, res) => {
     res.status(200).render("edicionPosteos", { data: PostModel.find() });
 };
 
+
 exports.edicion = (req, res) => {
+    // PostModel.findOneAndUpdate({ id: "admin" }, { $set: { usuario: req.body.usuario } }, { new: true }, function (err, doc) {
+    //     if (err) console.log("Error ", err);
+    //     console.log("Updated Doc -> ", doc);
+    //     res.status(200).render("login", { isLogin: isLogin, login: login });
+    // });    
     res.status(200).render("editPosteo");
 };
-
-exports.editarPost = (req, res) => {
-    PostModel.findOneAndUpdate(
-        { id: req.body.id },
-        {
-            $set: {
-                fecha: new Date(req.body.fecha),
-                titulo: req.body.titulo,
-                descripcion: req.body.descripcion,
-                imagen: "./public/images/databaseimg/" + req.body.image,
-                enlace: req.body.enlace,
-                tags: req.body.tag,
-            },
-        },
-        { new: true },
-        function (err, doc) {
-            if (err) console.log("Error ", err);
-            console.log("Updated Doc -> ", doc);
-            res.status(200).render("editPosteo");
-        }
-    );
-
-    res.status(200).render("editPosteo");
-};
-
 
 exports.visualizar = (req, res) => {
     res.status(200).render("visualizarPost");
+};
+
+exports.eliminar = (req, res) => {
+    // let titulo = document.getElementById("titulo");
+    // console.log(titulo.innerHTML); 
+    User.findOneAndDelete({id: req.params['id']}, function (err, docs) {
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log("Deleted User : ", docs);
+        }
+    });
 };

@@ -1,90 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-  
-    <link rel="stylesheet" href="/css/style.css">
+    <head>
+        <meta charset="UTF-8" />
 
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body>
-  <div class="sidebar close">
-    <div class="logo-details">
-      <a href="/">
-        <i class="fa-solid fa-house logo-sidebar"></i>
-        </a>
-      <span class="logo_name">Hospital Pediátrico</span>
-    </div>
-    <ul class="nav-links">
-      
-      <li>
+        <link rel="stylesheet" href="/css/style.css" />
 
-        <a href="/subirPost">
-          <i class='bx bxs-add-to-queue' ></i>
-          <span class="link_name">Crear publicaciones</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Crear</a></li>
-        </ul>
-      </li>
+        <link
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
 
+    <body id="body-pd">
+        <h3>Sección Administrativa</h3>
+        <header class="header" id="header">
+            <div class="header_toggle">
+                <i class="bx bx-menu" id="header-toggle"></i>
+            </div>
+            <div class="header_img">
+                <img src="/images/avatars/avatar.jpg" alt="profileImg" />
+            </div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="/" class="nav_logo">
+                        <i class="fa-solid fa-house logo-sidebar logoHome"></i>
+                        <span class="nav_logo-name">Hospital Pediátrico</span>
+                    </a>
+                    <div class="nav_list">
+                        <a href="/subirPost" class="nav_link">
+                            <i class="bx bxs-add-to-queue"></i>
+                            <span class="nav_name">Crear Publicaciones</span>
+                        </a>
+                        <a href="/seccionAdmin" class="nav_link">
+                            <i
+                                class="fa-solid fa-box-archive sidebar.close"
+                            ></i>
+                            <span class="nav_name">Publicaciones</span>
+                        </a>
+                        <a href="/config" class="nav_link">
+                            <i class="bx bx-cog logo-sidebar"></i>
+                            <span class="nav_name">Configuraciones</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="/logout" class="nav_link">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav_name">SignOut</span>
+                </a>
+            </nav>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                    const toggle = document.getElementById(toggleId),
+                        nav = document.getElementById(navId),
+                        bodypd = document.getElementById(bodyId),
+                        headerpd = document.getElementById(headerId);
 
-      <li>
+                    // Validate that all variables exist
+                    if (toggle && nav && bodypd && headerpd) {
+                        toggle.addEventListener("click", () => {
+                            // show navbar
+                            nav.classList.toggle("show");
+                            // change icon
+                            toggle.classList.toggle("bx-x");
+                            // add padding to body
+                            bodypd.classList.toggle("body-pd");
+                            // add padding to header
+                            headerpd.classList.toggle("body-pd");
+                        });
+                    }
+                };
 
-        <a href="/seccionAdmin">
-          <i class="fa-solid fa-box-archive sidebar.close"></i>
-          <span class="link_name">Publicaciones</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Posts</a></li>
-        </ul>
-      </li>
+                showNavbar("header-toggle", "nav-bar", "body-pd", "header");
 
-      <li>
-        <a href="/config">
-          <i class='bx bx-cog logo-sidebar' ></i>
-          <span class="link_name">Configuración</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Config</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        <img src="/images/avatars/avatar.jpg" alt="profileImg">
-      </div>
-      <div class="name-job">
-        <div class="profile_name">Admin</div>
-      </div>
-      <a href="/logout">
-      <i class='bx bx-log-out'></a></i>
-    </div>
-  </li>
-</ul>
-  </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">Sección Administrativa</span>
-    </div>
-  </section>
-  <script>
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e)=>{
-   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-   arrowParent.classList.toggle("showMenu");
-    });
-  }
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu");
-  console.log(sidebarBtn);
-  sidebarBtn.addEventListener("click", ()=>{
-    sidebar.classList.toggle("close");
-  });
-  </script>
-  <script src="https://kit.fontawesome.com/6e2e3e8384.js" crossorigin="anonymous"></script>
-</body>
+                /*===== LINK ACTIVE =====*/
+                const linkColor = document.querySelectorAll(".nav_link");
+
+                function colorLink() {
+                    if (linkColor) {
+                        linkColor.forEach((l) => l.classList.remove("active"));
+                        this.classList.add("active");
+                    }
+                }
+                linkColor.forEach((l) =>
+                    l.addEventListener("click", colorLink)
+                );
+
+                // Your code to run since DOM is loaded and ready
+            });
+        </script>
+        <script
+            src="https://kit.fontawesome.com/6e2e3e8384.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
