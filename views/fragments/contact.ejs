@@ -60,11 +60,13 @@
                 </div>
                 <div class="col-md-6">
                     <label for="Consulta">&#128172; Consulta</label>
+                    <span class="obligatorio">*</span>
                 </div>
                 <div class="col-100">
                     <input
                         type="text"
                         name="consulta"
+                        id="consulta"
                         placeholder="Ingresa tu consulta..."
                     />
                 </div>
@@ -73,5 +75,57 @@
                 </div>
             </form>
         </div>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript">
+            //Validacion de los inputs del formulario para posteos
+            const botonpress = document.getElementById("botonsubmit");
+            const nombreinp = document.getElementById("nombre");
+            const apellidoinp = document.getElementById("apellido");
+            const correoinp = document.getElementById("correo");
+            const telefonoinp = document.getElementById("telefono");
+            const consultainp = document.getElementById("consulta");
+            function swals(icon, textoError) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: icon,
+                    text: textoError,
+                    showConfirmButton: false,
+                    timer: 4000,
+                    width: 300,
+                    padding: 0.5,
+                });
+            }
+            botonpress.addEventListener("click", (e) => {
+                // Validacion si los campos esnta vacios
+                if (
+                    validator.isEmpty(nombreinp.value) == true ||
+                    validator.isEmpty(apellidoinp.value) == true ||
+                    validator.isEmpty(correoinp.value) == true ||
+                    validator.isEmpty(consultainp.value) == true
+                ) {
+                    swals(
+                        "error",
+                        "algunos campos obligatorios no estan siendo completados"
+                    );
+                    e.preventDefault();
+                }
+
+                //validacion cantidad de caracteres de la consulta
+                else if (
+                    validator.isLength(consultainp.value, {
+                        min: 10,
+                        max: 600,
+                    }) == false
+                ) {
+                    swals(
+                        "error",
+                        "la consulta es demasiado larga sintetisarla porfavor"
+                    );
+                    e.preventDefault();
+                } else {
+                    swals("success", "formulario enviado correctmante");
+                }
+            });
+        </script>
     </body>
 </html>

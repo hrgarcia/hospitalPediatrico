@@ -82,11 +82,18 @@ app.post("/contactForm", async (req, res) => {
     let contenido = {
         from: "jaguerodiaz@escuelaproa.edu.ar", // sender address
         to: "jjgenio.com@gmail.com", // list of receivers
-        subject: req.body.nombre + req.body.apellido, // Subject line
+        subject: "consulta de paciente", // Subject line
         text:
+            req.body.nombre +
+            "  " +
+            req.body.apellido +
+            "\n" +
             "consulta:" +
+            "\n" +
             req.body.consulta +
+            "\n" +
             "mail del paciente:" +
+            "\n" +
             req.body.correo, // plain text body
     };
     transporter.sendMail(contenido, function (err, data) {
