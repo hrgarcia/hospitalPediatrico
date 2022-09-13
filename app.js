@@ -10,6 +10,7 @@ const cors = require("cors");
 const session = require("express-session");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
+const backup = require("mongodb-backup");
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
@@ -53,7 +54,6 @@ app.post("/cargarImagen", async (req, res) => {
 });
 
 app.post("/guardarImagen", async (req, res) => {
-    //Multer para carga en DataBase
     app.use(
         multer({
             storage: multer.diskStorage({
@@ -102,6 +102,13 @@ app.post("/contactForm", async (req, res) => {
         } else {
             console.log(`Email enviado`);
         }
+    });
+    res.render("index");
+});
+
+app.post("/backup", async (req, res) => {
+    backup({
+        uri:""
     });
     res.render("index");
 });
