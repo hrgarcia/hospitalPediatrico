@@ -498,6 +498,10 @@ strong {
     padding: 0;
 }
 
+.margenes{
+    margin-bottom: 50px;
+}
+
 .timeline-nodes:nth-child(odd) h3,
 .timeline-nodes:nth-child(odd) p {
     text-align: right;
