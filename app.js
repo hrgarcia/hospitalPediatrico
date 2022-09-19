@@ -12,9 +12,7 @@ const multer = require("multer");
 const nodemailer = require("nodemailer");
 const { spawn } = require("child_process");
 const cron = require("node-cron");
-const DB_NAME =
-    "mongodb+srv://hrgarcia:EaFhXeNfxbG277Zz@cluster0.fs8tm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const ARCHIVE_PATH = path.join(__dirname, "public", `${DB_NAME}.gzip`);
+const ARCHIVE_PATH = path.join(__dirname, "public", `myFirstDataBases.gzip`);
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
@@ -114,7 +112,11 @@ app.post("/contactForm", async (req, res) => {
 backupMongoDB();
 
 function backupMongoDB() {
-    const child = spawn("mongodump", [`--help`]);
+    const child = spawn("mongodump", [
+        `--uri=mongodb+srv://hrgarcia:EaFhXeNfxbG277Zz@cluster0.fs8tm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+        `--archive=${ARCHIVE_PATH}`,
+        "--gzip",
+    ]);
 
     child.stdout.on("data", (data) => {
         console.log("stdout:\n", data);
