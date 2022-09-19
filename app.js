@@ -10,7 +10,11 @@ const cors = require("cors");
 const session = require("express-session");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
-const backup = require("mongodb-backup");
+const { spawn } = require("child_process");
+const cron = require("node-cron");
+const DB_NAME =
+    "mongodb+srv://hrgarcia:EaFhXeNfxbG277Zz@cluster0.fs8tm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const ARCHIVE_PATH = path.join(__dirname, "public", `${DB_NAME}.gzip`);
 //Defino el motor de plantillas a utilizar
 app.set("view engine", "ejs");
 //Defino la localización de mis vistas
@@ -106,9 +110,24 @@ app.post("/contactForm", async (req, res) => {
     res.render("index");
 });
 
-app.post("/backup", async (req, res) => {
-    backup({
-        uri:""
+// cron.schedule("*/5 * * * * *", () => backupMongoDB());
+backupMongoDB();
+
+function backupMongoDB() {
+    const child = spawn("mongodump", [`--help`]);
+
+    child.stdout.on("data", (data) => {
+        console.log("stdout:\n", data);
     });
-    res.render("index");
-});
+    child.stderr.on("data", (data) => {
+        console.log("stderr:\n", Buffer.from(data).toString());
+    });
+    child.on("error", (error) => {
+        console.log("error:\n", error);
+    });
+    child.on("exit", (code, signal) => {
+        if (code) console.log("Process exit with code:", code);
+        else if (signal) console.log("Process killed with signal:", signal);
+        else console.log("Backup is successfull ✅");
+    });
+}
