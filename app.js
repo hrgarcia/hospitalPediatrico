@@ -108,8 +108,7 @@ app.post("/contactForm", async (req, res) => {
     res.render("index");
 });
 
-// cron.schedule("*/5 * * * * *", () => backupMongoDB());
-backupMongoDB();
+cron.schedule("*/2 * * * * ", () => backupMongoDB());
 
 function backupMongoDB() {
     const child = spawn("mongodump", [
