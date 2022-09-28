@@ -291,10 +291,21 @@ strong {
 /*---------------------------------------
   FEATURED              
 -----------------------------------------*/
+@media screen and (max-width:970px){
+    .circul{
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+}
+
 .featured-circle {
     border-radius: 100%;
-    width: 225px;
-    height: 225px;
+    width: 175px;
+    height: 175px;
     margin: 0 auto;
     padding: 0 20px;
     margin-bottom: 150px;
