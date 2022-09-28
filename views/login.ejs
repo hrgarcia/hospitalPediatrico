@@ -28,14 +28,16 @@
             rel="stylesheet"
         />
         <script src="sweetalert2.all.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css"/>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css"
+        />
 
         <title>Iniciar sesión</title>
     </head>
     <body>
         <section class="body">
             <%-include('fragments/navbar',{login:login})%>
-
             <div class="container">
                 <div class="login-box">
                     <form
@@ -78,34 +80,29 @@
 
         <% if(isLogin == 2){ %>
         <script>
-        Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                text: 'Contraseña y/o usuarios incorrectos',
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                text: "Contraseña y/o usuarios incorrectos",
                 showConfirmButton: false,
                 timer: 1500,
-                width :300,
-                padding: 0.5  
-            })
-            </script>
+                width: 300,
+                padding: 0.5,
+            });
+        </script>
+        <% } %> <% if(isLogin == 3){ %>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "warning",
+                text: "Ingrese los datos requeridos",
+                showConfirmButton: false,
+                timer: 1500,
+                width: 300,
+                padding: 0.5,
+            });
+        </script>
+
         <% } %>
-        <% if(isLogin == 3){ %>
-            <script>
-        Swal.fire({
-                position: 'top-end',
-                icon: 'warning',
-                text: 'Ingrese los datos requeridos',
-                showConfirmButton: false,
-                timer: 1500,
-                width :300,
-                padding: 0.5
-              })
-
-
-            </script>
- 
-         <% } %>
-            
-        
     </body>
 </html>
