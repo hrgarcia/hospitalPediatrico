@@ -1007,17 +1007,24 @@ strong {
     width: 100px;
     margin-left: -70px;
 }
-.botoncerrarsesion {
-    position: absolute;
-    margin-top: 7px;
-    margin-left: 105px;
-}
-.botoninicio {
-    position: absolute;
-    margin-top: 7px;
-    margin-left: 12px;
-}
 
+.botoninicio {
+    
+    margin-top: 7px;
+    padding: 7px;
+    border: 2px solid rgb(76, 67, 240);
+    border-radius: 15%;
+}
+.botoninicio:hover{
+    background-color:rgba(39, 39, 249, 0.588);
+}
+.botoninicio a{
+    text-decoration: none;
+    color: #000;
+}
+.botoninicio a:hover{
+    color: #000;
+}
 .botonposteo {
     position: absolute;
     margin-top: 7px;
