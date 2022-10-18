@@ -1011,12 +1011,13 @@ strong {
 .botoninicio {
     
     margin-top: 7px;
+    margin-left: 200px;
     padding: 7px;
     border: 2px solid rgb(76, 67, 240);
     border-radius: 15%;
 }
 .botoninicio:hover{
-    background-color:rgba(39, 39, 249, 0.588);
+    background-color:rgb(76, 67, 240);
 }
 .botoninicio a{
     text-decoration: none;
