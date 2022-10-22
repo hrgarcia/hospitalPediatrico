@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicaciones y Noticias</title>
+
+  <link rel="stylesheet" href="css/verPostsUsuario.css">
+  <link href="//fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin" rel="preload"
+    as="font">
+
+  <%-include('fragments/head.ejs', {data:data})%>
+</head>
+
+<body>
+
+  <div class="contenedor">
+    <%-include('fragments/navbar.ejs')%>
+
+
+
+      <div class="introduccion">
+        <h2 class="animate__animated animate__headShake">Noticias y publicaciones
+        </h2>
+        <i class="acomodar">En esta sección podrás ver todas las publicaciones hechas por nosotros.</i>
+      </div>
+
+      <div class="contenido">
+        <div class="posts">
+          <% data.forEach(function(i){ %>
+            <a href="/visualizar/<%=i.id%>" class="items">
+              <div class="imgPostCard"></div>
+              <div class="postContent">
+                <h5 class="tagPostCard">#<%=i.tags%>
+                </h5>
+                <h4 class="titlePostCard">
+                  <%=i.titulo%>
+                </h4>
+                <h6 class="datePostCard">
+                  <%=i.fecha%>
+                </h6>
+              </div>
+            </a>
+            <%});%>
+        </div>
+
+      </div>
+
+      <button class="back-to-top hidden back-to-top-icon">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+  </div>
+  <script>
+    const showOnPx = 100;
+    const backToTopButton = document.querySelector(".back-to-top")
+
+    const scrollContainer = () => {
+      return document.documentElement || document.body;
+    };
+
+    document.addEventListener("scroll", () => {
+      if (scrollContainer().scrollTop > showOnPx) {
+        backToTopButton.classList.remove("hidden")
+      } else {
+        backToTopButton.classList.add("hidden")
+      }
+    })
+
+    const goToTop = () => {
+      document.body.scrollIntoView({
+        behavior: "smooth",
+      });
+    };
+    backToTopButton.addEventListener("click", goToTop);
+
+
+  </script>
+  <script src="https://kit.fontawesome.com/6e2e3e8384.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

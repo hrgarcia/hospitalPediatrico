@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+   
+}
+
+body{
+    text-align: center;
+}
+
+
+html{
+    background-color:#dfdad9;
+}
+
+.contenedor{
+    background-color:#dfdad9;
+}
+
+.introduccion{
+    display: flex;
+    flex-direction: column;
+   
+    margin-bottom: 3%;
+
+
+    height: 200px;
+    width: 100%;
+
+    background-color: #4FA3FF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23478ae1' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%233f70c3' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%233657a5' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%232e3d87' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23262469' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+.introduccion h2{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+   
+    padding-top: 2.5%;
+    text-align: center;
+    width: 100%;
+    margin: 0px auto;
+    color: #ffffff;
+    font-size: 80px;
+    letter-spacing: 5px;
+   
+    text-shadow: 
+      3px 3px 0px #2c0b88,
+      6px 6px 0px #0d012e;
+}
+.acomodar{
+    font-weight: 900;
+    font-size: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #000000;
+    text-align: center;
+}
+.contenido{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    margin-bottom: 2%;
+   
+}
+
+
+.posts{
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    column-gap: 7%;
+    row-gap: 7%;
+    margin-left: 12%;
+    margin-bottom: 35%;
+     
+}
+
+.items{
+    width: 40%;
+    height: 24%;
+    background-color: #274f8a27;
+    display: flex;
+    flex-direction: row-reverse;
+    box-shadow: #0000004d 0px 19px 38px, #00000038 0px 15px 12px;
+    border-radius: 15px;
+}
+.postContent{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: flex-start;
+}
+.postContent:hover{
+	box-shadow:1px 1px 20px #313131;
+    border-radius: 15px;
+}
+.items .imgPostCard{
+    height: 100%;
+    width: 50%;
+    background-image: url(../images/hospitalPediatrico.jpg);
+    background-position: center;
+    background-size: cover
+    
+}
+.postContent .tagPostCard{
+    color: #2f90ff;
+    font-family: 'Nunito Sans', sans-serif;
+    letter-spacing: 0.2px;
+    font-size: 18px;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 2%;
+}
+.postContent .titlePostCard{
+    color: #000;
+    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.postContent .datePostCard{
+    color: #6e6e6e;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.postContent .descPostCard{
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.filtros{
+    display: flex;
+    width: 10%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+.fechas{
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    height: 50%;
+    background-color: #000;
+}
+
+
+
+@media only screen and (max-width: 2560px){
+    .introduccion h2{
+        font-size: 40px;
+    }
+    .introduccion h6{
+        font-size: 25px;
+    }
+    .posts{
+        width: 85%;
+        column-gap: 2%;
+    }
+    .posts .items{
+        height: 70%;
+        width: 45%;
+    }
+    .items .tagPostCard{
+        font-size: 20px;
+    }
+    .filtros .fechas{
+        width: 120%;
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 1440px){
+    .posts{
+        width: 85%;
+        row-gap: 15%;
+    }
+    .posts .items{
+        height: 60%;
+        width: 48%;
+    }
+    .filtros .fechas{
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .posts{
+        width: 100%;
+    }
+    .posts .items{
+        height: 65%;
+        width: 48%;
+    }
+    .filtros{
+        display: none;
+    }
+}
+@media only screen and (max-width: 768px){
+    .introduccion{
+        margin-top: 5%;
+    }
+    .posts{
+        width: 100%;
+        flex-direction: row;
+        margin-bottom: 5%;
+    }
+    .posts .items{
+        height: 50%;
+        width: 45%;
+        flex-direction: row;
+    }
+    .items .imgPostCard{
+        display: none;
+    }
+    .items .postContent{
+        width: 100%;
+    }
+    .filtros{
+        display: none;
+    }
+}
+@media only screen and (max-width: 425px){
+    .introduccion{
+        margin-top: 20%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .contenido{
+        flex-direction: column;
+    }
+    .posts{
+        margin-left: 5%;
+        flex-direction: column;
+        width: 90%;
+    }
+    .posts .items{
+        width: 100%;
+        margin-bottom: 10%;
+        flex-direction: row;
+    }
+    .items .imgPostCard{
+        display: none;
+    }
+    .items .postContent{
+        width: 100%;
+    }
+    .filtros{
+        display: none;
+    }
+}
+@media only screen and (max-width: 375px){
+    .introduccion{
+        margin-top: 35%;
+    }
+}
+@media only screen and (max-width: 320px){
+    .introduccion{
+        margin-top: 40%;
+    }
+
+    .introduccion h2 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 600;
+        padding-top: 2.5%;
+        text-align: center;
+        width: 100%;
+        margin: 0px auto;
+        color: #ffffff;
+        font-size: 35px;
+        letter-spacing: 5px;
+        text-shadow: 3px 3px 0px #2c0b88, 6px 6px 0px #0d012e;
+    }
+
+    .acomodar {
+        font-weight: 900;
+        font-size: 15px;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #000000;
+        text-align: center;
+    }
+}
+
+/*Boton de regreso*/
+.back-to-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    border-radius: 100%;
+    background: #1c2b5a;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    opacity: 100%;
+    transition: opacity 0.5s;
+  }
+
+  .hidden {
+  display: none;
+  opacity: 0%;
+}
+
+.back-to-top-icon {
+    width: 3rem;
+  height: 3rem;
+  color: #1c2b5a;
+  }
+
+  .back-to-top:hover {
+    opacity: 60%;
+  }
+
+  i{
+    color: white;
+  }

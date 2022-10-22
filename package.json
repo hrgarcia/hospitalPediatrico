@@ -25,7 +25,7 @@
         "express-session": "^1.17.2",
         "moment": "^2.29.1",
         "mongodb-backup": "^1.6.9",
-        "mongoose": "^6.5.4",
+        "mongoose": "^6.6.5",
         "morgan": "^1.10.0",
         "multer": "^1.4.4",
         "node-cron": "^3.0.2",

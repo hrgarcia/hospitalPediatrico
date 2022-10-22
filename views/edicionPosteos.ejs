@@ -1,6 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
 
-
-
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,15 +10,12 @@
     <link rel="stylesheet" href="/css/paginador.css" />
     <link rel="stylesheet" href="/css/edicionPosteos.css" />
     <title>Document</title>
-
+</head>
 
 <%-include('fragments/admin', {data:data})%>
 
-
     <body>
         <main>
-
-
             <li class="publicacion">
                 <div class="row">
 
@@ -35,20 +33,9 @@
                                                 <%=e.fecha%>
                                             </p>
 
-                                            <div class="botones">
-                                                <a href="/visualizar">
-                                                    <button type="input" onclick="visualizar()" class="btn btn-primary">
-                                                        Visualizar
-                                                    </button>
-                                                </a>
-                                                <a href="/editarPosteo">
-                                                    <button type="button" onclick="editar()" class="btn btn-primary">
-                                                        Editar
-                                                    </button>
-                                                </a>
-                                                <button type="button" onclick="cartel(),eliminar()" class="btn btn-danger">
-                                                    Eliminar
-                                                </button>
+                                            <a type="button" href="/visualizar/<%=e.id%>" class="btn btn-outline-dark">Visualizar</a>
+                                            <a type="button" href="/editarpost/<%=e.id%>" class="btn btn-primary">Editar</a>
+                                            <a type="button" onclick="Eliminar('<%=e.id%>','<%=e.titulo[0].toUpperCase()+(e.titulo).substring(1)%>')" class="btn btn-danger">Eliminar</a>
                                             </div>
 
                                         </div>
@@ -74,14 +61,77 @@
             </nav>
         </main>
 
-      
+        <script>
+            
+            function Eliminar(index,titulo){
+                
+                Swal.fire({
+            title: 'Seguro quieres borrar el post: ('+titulo+')?',
+            showCancelButton: true,
+            confirmButtonText: 'Eliminar',
+            
+            }).then((result) => {
+                
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {   
+                Swal.fire('Post:'+index+' Borrado ', '', 'success')
+                location.href="/eliminarPost/"+index;
+            } else if (result.isDenied) {
+            Swal.fire('No se ha borrado el Posteo', '', 'info')
+            }
+            })
+                
+        }
+        function cartel(encontrar) {
+            const btn = document.getElementById("eliminar")
+            btn.addEventListener('click', () => {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        PostModel.findOneAndDelete({id: encontrar}, function (err, docs) {
+                        if (err) {
+                            console.log(err)
+                        }
+                        else {
+                            console.log("Deleted post : ", docs);
+                        }
+                    });
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            })
+        }
+                function editar(){
+                    const btnE = document.getElementById("editar")
+            btnE.addEventListener('click', () => {
+                res.render("editPosteo");
+            })                  
+                }
+                </script>
+        <script src="js/edicionPosteos.js"></script>
+
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
 
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/paginador.js"></script>
-       <script src="js/seccionPosteos.js"></script>
+        <script src="js/seccionPosteos.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
     </body>
 
+</html>
