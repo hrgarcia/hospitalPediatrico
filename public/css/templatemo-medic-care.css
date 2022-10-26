@@ -1013,7 +1013,7 @@ strong {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     text-decoration:none;
-    
+    color: #000;
     font-size: var(--menu-font-size);
     padding-top: 10px;
     padding-bottom: 15px;
@@ -1023,7 +1023,7 @@ strong {
 }
 
 .botonNeumo:hover {
-    background-color: rgb(0, 0, 212);
+    background-color:  #3b5ac0ca;
 }
 
 .botonSaludMental:hover {
