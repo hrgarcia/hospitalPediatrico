@@ -4,9 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/footer.css" />
 
-
-   
-        <h2 class="col-sm-8 col-md-9 col-lg-8">Ubicacion</h2>
+        
         <script
             type="text/javascript"
             src="http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AqcB0nGFtpJ4G_FqucZVRZrjoYOVpPxTGfHz9XCEWlZ_pLKtDCjUuYqug9wOJ8CJ"
@@ -15,6 +13,7 @@
         ></script>
 
         <script type="text/javascript">
+            
             function GetMap() {
                 let map = new Microsoft.Maps.Map("#myMap", {
                     center: new Microsoft.Maps.Location(
@@ -23,18 +22,20 @@
                     ),
                     zoom: 17,
                 });
+                
                 let center = map.getCenter();
 
                 let pin = new Microsoft.Maps.Pushpin(center, {
                     icon: "images/marker.png",
                 });
-
                 map.entities.push(pin);
             }
+            
         </script>
+        
         <div
             id="myMap"
-            class="map"
+            class="map img2"
             style="position: relative; width: auto; height: auto"
             div
         ></div>

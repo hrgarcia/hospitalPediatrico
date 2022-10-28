@@ -1059,3 +1059,11 @@ strong {
     width: 5px;
     margin-left: 96px;
 }
+
+.img2::after{
+    content: "Ubicación";
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgb(96, 95, 95);
+    position: absolute;
+}
