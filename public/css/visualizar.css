@@ -16,10 +16,10 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     font-size: 50px;
     padding-top: 5%;
     margin-left: 18%;
-    color: #1c2b5a;
+    color: #ffffff;
 }
 .volver:hover{
-    color: #3300C0;
+    color: #aac8ff;
 }
 
 .container-all{

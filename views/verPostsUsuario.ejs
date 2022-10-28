@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -18,12 +18,8 @@
 
   <div class="contenedor">
     <%-include('fragments/navbar.ejs')%>
-
-
-
       <div class="introduccion">
-        <h2 class="animate__animated animate__headShake">Noticias y publicaciones
-        </h2>
+        <h2>Noticias y publicaciones</h2>
         <i class="acomodar">En esta sección podrás ver todas las publicaciones hechas por nosotros.</i>
       </div>
 
@@ -33,13 +29,18 @@
             <a href="/visualizar/<%=i.id%>" class="items">
               <div class="imgPostCard"></div>
               <div class="postContent">
-                <h5 class="tagPostCard">#<%=i.tags%>
-                </h5>
-                <h4 class="titlePostCard">
-                  <%=i.titulo%>
-                </h4>
                 <h6 class="datePostCard">
                   <%=i.fecha%>
+                </h6>
+                <h4 class="titlePostCard" id="titulo">
+                  <%=i.titulo%>
+                </h4>
+                <h5 class="textPostCard">
+                  "<%=i.descripcion.split(".")[0]%>.."
+                </h5>
+
+
+                <h6 class="tagPostCard">#<%=i.tags%>
                 </h6>
               </div>
             </a>
@@ -77,6 +78,9 @@
 
 
   </script>
+
+
+
   <script src="https://kit.fontawesome.com/6e2e3e8384.js" crossorigin="anonymous"></script>
 </body>
 
