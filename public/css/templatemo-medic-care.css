@@ -1008,6 +1008,28 @@ strong {
     margin-left: -70px;
 }
 
+.botonesAreas {
+    position: center;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    text-decoration:none;
+    color: #000;
+    font-size: var(--menu-font-size);
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.botonKine:hover {
+    background-color: rgb(151, 224, 42);
+}
+
+.botonNeumo:hover {
+    background-color:  #3b5ac0ca;
+}
+
+.botonSaludMental:hover {
+    background-color: rgb(233, 0, 0);
+}
+
 .botoninicio {
     
     margin-top: 7px;
@@ -1036,4 +1058,12 @@ strong {
     height: 4px;
     width: 5px;
     margin-left: 96px;
+}
+
+.img2::after{
+    content: "Ubicación";
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgb(96, 95, 95);
+    position: absolute;
 }
