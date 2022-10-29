@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 :root {
   --header-height: 3rem;
   --nav-width: 68px;
@@ -25,7 +25,12 @@ body {
   font-size: var(--normal-font-size);
   transition: .5s
 }
-
+.tituloSeccion{
+  font-family: 'Poppins', sans-serif;
+  color: #30499B;
+  font-size: 25px;
+  font-weight: 500;
+}
 a {
   text-decoration: none
 }

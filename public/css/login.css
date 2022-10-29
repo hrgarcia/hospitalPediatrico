@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #5858d6, #948adb);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.login-card{
+    width: 450px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 4rem;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 33%;
+}
+.login-card::before{
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    inset: 0;
+    transform: rotate(-5deg);
+    z-index: -1;
+}
+
+.login-card-logo{
+    margin-bottom: 2rem;
+}
+.login-card-logo img{
+    width: 60px;
+}
+.login-card-logo, .login-card-header{
+    text-align: center;
+}
+.login-card a{
+    text-decoration: none;
+    color: #35339a;
+}
+.login-card a:hover{
+    text-decoration: underline;
+}
+.login-card-header{
+    margin-bottom: 2rem;
+}
+.login-card-header h1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+.login-card-header h1 + div{
+    font-size: calc(1rem * .8);
+    opacity: .8;
+}
+.login-card-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.login-card-form .form-item{
+    position: relative;
+}
+.login-card-form .form-item .form-item-icon{
+    position: absolute;
+    top: .82rem;
+    left: 1.4rem;
+    font-size: 1.3rem;
+    opacity: .4;
+}
+.login-card-form .checkbox{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.login-card-form .form-item-other{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(1rem * .8);
+    margin-bottom: .5rem;
+}
+.login-card input[type="text"],
+.login-card input[type="password"]{
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    padding: 1rem 1.5rem;
+    padding-left: calc(1rem * 3.5);
+    border-radius: 100px;
+    width: 100%;
+    transition: background .5s;
+}
+.login-card input:focus{
+    background: white;
+}
+.login-card input[type="checkbox"]{
+    width: 16px;
+    height: 16px;
+    accent-color: black;
+    margin-left: 10%;
+}
+.login-card-form button{
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+.login-card-form button:hover{
+    background-color: rgba(0, 0, 0, .85);
+    cursor : pointer;
+}
+
+@media only screen and (max-width: 768px){
+    body{
+        padding: 2rem 0;
+    }
+    .login-card{
+        width: 300px;
+        padding: 2rem;
+    }
+}

@@ -1,93 +1,74 @@
+<nav>
+    <div class="logo">
+        <img src="/images/logo.png" title="Seccion Asmática" alt="seccion asmatica">
+        <div class="nombrePagina">
+            <div class="programa">Programa de Asma Grave</div>
+            <div class="hospital">Hospital Pediatrico del Niño Jesús</div>
+        </div>
+        <i class="toggleButton fas fa-bars"></i>
+    </div>
 
-        <%-include('head')%>
-
-        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
-            <div class="container">
-                <a class="navbar-brand mx-auto d-lg-none" href="#hero">
-                    Programa de Asma Grave
-                    <strong class="d-block"
-                        >Hospital Pediátrico del Niño Jesús</strong
-                    >
-                </a>
-                <button
-                    class="navbar-toggler collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="navbar-collapse collapse" id="navbarNav">
-                    <img
-                        src="images/logo.png"
-                        class="animate__animated animate__backInLeft img-fluid logo navbar-brand d-none d-lg-block"
-                        alt="get a vaccine"
-                        title="get a vaccine for yourself"
-                    />
-
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active tipografi">
-                            <a class="nav-link" href="/">Inicio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/verPostsUsuario">Foro</a>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-controls="#navbarDropdown1" aria-expanded="false">
-                            Areas
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                <li class="botonKine"><a class="botonesAreas" href="/kinesiologia">Kinesiologia</a></li>
-                                <li class="botonSaludMental"><a class="botonesAreas" href="/saludmental">Saludmental</a></li>
-                                <li class="botonNeumo"><a class="botonesAreas" href="/neumonologia">Neumonologia</a></li>
-                            </ul>
-                        </li>
-                        <a
-                            class="animate__animated animate__backInDown navbar-brand d-none d-lg-block"
-                        >
-                            Programa de Asma Grave<strong
-                                class="d-block subtitule"
-                                style="color: white"
-                                >Hospital Pediátrico del Niño Jesús</strong
-                            >
-                        </a>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/seccionAdmin">Administrador</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#contact"
-                                >contacto</a
-                            >
-                        </li>
-
-                        <% if(login){ %>
-                        <li class="nav-item">
-                            <button
-                                type="button"
-                                class="btn btn-outline-primary botoninicio"
-                            >
-                                <a href="logout">Cerrar sesion</a>
-                            </button>
-                        </li>
-                        <% } else{ %>
-                        <li class="nav-item">
-                            <button
-                                type="button"
-                                class="botoninicio"
-                            >
-                                <a href="login">Ingresar</a>
-                            </button>
-                        </li>
-                        <%}%>
-                    </ul>
+    <div class="mainBody">
+        <div class="secciones">
+            <a href="/"><div class="inicio title">inicio</div></a>
+            <a href="/verPostsUsuario"><div class="articulos title">artículos</div></a>
+            <div class="divisiones title">
+                <span>Divisiones <i class="fa-solid fa-caret-down"></i></span>
+                <div class="menuDropdown">
+                    <div class="ul">
+                        <div class="li kinesiologia"><a href="/kinesiologia*">Kinesiología</a></div>
+                        <div class="li saludMental"><a href="/saludmental">Salud mental</a></div>
+                        <div class="li neumonologia"><a href="/neumonologia">Neumonología</a></div>
+                    </div>
                 </div>
             </div>
-        </nav>
+            <a href="/seccionAdmin"><div class="administracion title">Administración</div></a>
+            <a href="/contactanos"><div class="contacto title">Contacto</div></a>
+        </div>
+        <div class="ingresoAdmin">
+            <% if(login){ %>
+                <a href="/logout"><button type="button">Cerrar sesión</button></a>  
+                
+            <%}else{ %>
+                <a href="/login"><button type="button">Iniciar sesión</button></a>  
+            <%}%>
+        </div>
+    </div>
+</nav>
+<script>
+    //Dropdown menu
+    let divisionesEl = document.querySelector(".divisiones");
+
+    divisionesEl.addEventListener("click", function(){
+        document.querySelector(".divisiones ul").classList.toggle("show");
+    })
+
+    //Shrinking nav
+    let navEl = document.querySelector("nav");
+
+    $(document).ready(function(){
+        let shrink = 60;
+        $(window).scroll(function(){
+            let scroll = getCurrentScroll();
+            if(scroll >= shrink){
+                $(navEl).addClass('shrink');
+            }
+            else{
+                $(navEl).removeClass('shrink');
+            }
+        });
+        function getCurrentScroll(){
+            return window.pageYOffset || document.documentElement.scrollTop;
+        }
+    });
+
+    //toggle btn
+    let toggleBtnEl = document.querySelector(".toggleButton");
+    let seccionesEl = document.querySelector(".mainBody");
+
+    toggleBtnEl.addEventListener("click", () => {
+        seccionesEl.classList.toggle("active");
+    })
+
+</script>
+<script src="https://kit.fontawesome.com/6e2e3e8384.js" crossorigin="anonymous"></script>

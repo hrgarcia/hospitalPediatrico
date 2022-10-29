@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Publicaciones y Noticias</title>
-
+  <link rel="stylesheet" href="/css/navbar.css">
   <link rel="stylesheet" href="css/verPostsUsuario.css">
   <link href="//fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin" rel="preload"
     as="font">
@@ -29,18 +29,14 @@
             <a href="/visualizar/<%=i.id%>" class="items">
               <div class="imgPostCard"></div>
               <div class="postContent">
-                <h6 class="datePostCard">
-                  <%=i.fecha%>
-                </h6>
-                <h4 class="titlePostCard" id="titulo">
+                <h4 class="titlePostCard">
                   <%=i.titulo%>
                 </h4>
-                <h5 class="textPostCard">
-                  "<%=i.descripcion.split(".")[0]%>.."
-                </h5>
-
-
-                <h6 class="tagPostCard">#<%=i.tags%>
+                <!-- <div class="descPostCard">
+                  <%=i.descripcion.split(".")[0]%>.
+                </div> -->
+                <h6 class="datePostCard">
+                  <%=i.fecha%><div class="tagPostCard">#<%=i.tags%></div>
                 </h6>
               </div>
             </a>

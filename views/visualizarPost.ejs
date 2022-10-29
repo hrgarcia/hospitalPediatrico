@@ -1,87 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="/css/visualizar.css" rel="stylesheet" />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <%-include('fragments/head.ejs', {data:data})%>
-    <title><%=data[0].titulo[0].toUpperCase()+(data[0].titulo).substring(1)%></title>
-   
+    <title>
+        <%=data[0].titulo%>
+    </title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/visualizarPost.css">
 </head>
 
 <body>
-  
-        <a href="/verPostsUsuario" class="arrow">
-            <i class="fa-solid fa-circle-arrow-left volver"></i>
-        </a>
-
-        <div class="container-all">
-            <div class="col-md-8">
-                <div class="card-body">
-                    <p class="card-text"><small class="text-muted"><%=data[0].fecha%></small></p>
-                    <h2 class="card-title separar"><%=data[0].titulo[0].toUpperCase()+(data[0].titulo).substring(1)%></h2>
-
-                    <div class="row">
-                    <div class="parrafo">
-                        
-                        <img class="animate__animated animate__bounce" id="myImg" src="/images/disparador.jpg" style="width:100%;max-width:300px">
-                   
-                        <p class="card-text">
-                            <%=data[0].descripcion%></p>
-                    </div>
+    <%-include('fragments/navbar.ejs')%>
+        <div class="contenedorNoticia">
+            <div class="tituloNoticia">
+                <%=data[0].titulo%>
+            </div>
+            <div class="imgNoticia">
+                <img id="myImg" src="<%=data[0].imagen%>" alt="<%=data[0].titulo%>" style="width:100%;">
+                <div id="myBtn" class="iContainer">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
                 </div>
-                   
-                       
+                <div id="myModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01">
                 </div>
                 
-            </div>  
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
             </div>
-        </div>
-
-
-        <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
-            // Get the image and insert it inside the modal - use its "alt" text as a caption
-            var img = document.getElementById("myImg");
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            img.onclick = function () {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-            }
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-            document.querySelectorAll('.imagen').forEach(image => {
-                image.onclick = () => {
-                    document.querySelector('popup-img').style.display = 'block';
-                    document.querySelector('popup-img img').src = image.getAttribute('src');
-                }
-            });
-            document.querySelector('popup-img span').onclick = () => {
-                document.querySelector('popup-img').style.display = 'block';
-            }
-        </script>
-        <script src="https://kit.fontawesome.com/6e2e3e8384.js" crossorigin="anonymous"></script>
+            <div class="fechaNoticia">
+                <%=data[0].fecha%>
+            </div>
+            <div class="descripcionNoticia">
+                <%=data[0].descripcion%>
+            </div>
+            <script src="/js/visualizarPost.js"></script>
 </body>
 
 </html>

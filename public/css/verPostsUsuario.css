@@ -79,31 +79,27 @@ html {
     flex-direction: row-reverse;
     box-shadow: #0000004d 0px 9px 19px, #00000038 0px 7px 6px;
     border-radius: 15px;
+    max-height: 50%;
+    max-width: 60%;
 }
-
-
 
 .postContent {
     display: flex;
     flex-direction: column;
     width: 60%;
-    justify-content: center;
     align-items: flex-start;
-
 }
 
 .items:hover {
     box-shadow: 1px 1px 20px #313131;
     border-radius: 15px;
-
-    background: rgb(148,187,233);
-background: linear-gradient(0deg, rgba(148,187,233,0.6895133053221288) 54%, rgba(85,66,189,0.31416316526610644) 100%);
+    background: linear-gradient(0deg, #274f8a27 50%, rgba(84, 66, 189, 0.568) 100%);
 }
 
 .items .imgPostCard {
     height: 100%;
     width: 50%;
-    background-image: url(../images/hospital.jpg);
+    background-image: url(../images/hospitalPediatrico.jpg);
     background-position: center;
     background-size: cover;
     border-top-right-radius: 15px;
@@ -114,8 +110,7 @@ background: linear-gradient(0deg, rgba(148,187,233,0.6895133053221288) 54%, rgba
     color: #4f59dd;
     font-family: 'Nunito Sans', sans-serif;
     letter-spacing: 0.2px;
-    font-weight: 600;
-    font-size: 5px;
+    font-size: 12px;
     padding-left: 4%;
     padding-right: 4%;
 }
@@ -127,6 +122,7 @@ background: linear-gradient(0deg, rgba(148,187,233,0.6895133053221288) 54%, rgba
     letter-spacing: 1px;
     padding-left: 4%;
     padding-right: 4%;
+    padding-top: 5%;
 }
 
 
@@ -136,6 +132,9 @@ background: linear-gradient(0deg, rgba(148,187,233,0.6895133053221288) 54%, rgba
     font-size: 16px;
     padding-left: 4%;
     padding-right: 4%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .postContent .textPostCard {
@@ -149,10 +148,13 @@ background: linear-gradient(0deg, rgba(148,187,233,0.6895133053221288) 54%, rgba
 }
 
 .postContent .descPostCard {
+    padding-top: 2%;
     padding-left: 4%;
     padding-right: 4%;
 }
-
+.items:hover .descPostCard{
+    color:#333333;
+}
 .filtros {
     display: flex;
     width: 10%;
@@ -193,7 +195,7 @@ background: linear-gradient(0deg, rgba(148,187,233,0.6895133053221288) 54%, rgba
     }
 
     .items .tagPostCard {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .filtros .fechas {

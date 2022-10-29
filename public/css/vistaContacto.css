@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.contact{
+    position: relative;
+    min-height: 90.6vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#324074bf, #324074bf), url(../images/hospitalPediatrico.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+.content h2{
+    font-size: 36px;
+    font-weight: 1000;
+    color: #fff;
+}
+.content p{
+    font-weight: 500;
+    color: #fff;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.container .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.contactInfo .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    width: 100%;
+}
+.box .icon{
+    min-width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+.box .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+    max-width: 100%;
+}
+.box .text h3{
+    font-weight: 500;
+    color: #7197ff;
+}
+.box .text p{
+    color: #fff;
+}
+.contactForm{
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+}
+.contactForm h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+.contactForm #errorMessage{
+    margin-bottom: 20px;
+    background-color: #307cd4ad;
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease;
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox textarea,
+.contactForm .inputBox input{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1.5px solid #3333337a;
+    outline: none;
+    resize: none;
+}
+.contactForm .inputBox textarea:focus,
+.contactForm .inputBox input:focus{
+    border-bottom: 1px solid #307dd4;
+}
+.contactForm .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span{
+    color: #4b70e9;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputBox input[type="submit"]{
+    width: 100px;
+    background: #7197ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+.contactForm .inputBox textarea::-webkit-scrollbar{
+    width: 5px;
+}
+.contactForm .inputBox textarea::-webkit-scrollbar-thumb{
+    background-color: rgb(94, 104, 245);
+}
+@media only screen and (max-width: 991px){
+    .contactInfo .box{
+        width: 90%;
+    }
+    .contact{
+        padding-top: 200px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .container .contactInfo, .contactForm{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}

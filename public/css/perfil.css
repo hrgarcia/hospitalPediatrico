@@ -33,7 +33,6 @@ Copiar esto
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color:#f5f4f1;
     margin-bottom: 1.25rem;
 }
 
@@ -93,10 +92,8 @@ Copiar esto
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    cursor: pointer;
     z-index: 5;
 }
-
 .seccion-perfil-usuario .perfil-usuario-body {
     width: 70%;
     position: relative;
@@ -222,22 +219,15 @@ Copiar esto
     font-size: 15px;
     line-height: 1.5;
     border-radius: 3px;
-    color: #000000;
+    color: #1b1b1b;
     background-color: #ffc100;
     border: 0;
     transition: 0.2s;
     overflow: hidden; 
-  }
-  
-  .boton-avatar input[type = "file"]{
-    cursor: pointer;
-    position: absolute;
+}
+.boton-avatar input[type = "file"]{
     left: 0%;
     top: 0%;
-    transform: scale(3);
     opacity: 0;
-  }
-  
-  .boton-avatar:hover{
-    background-color: #d9a400;
-  }
+    transform: scale(3);
+}

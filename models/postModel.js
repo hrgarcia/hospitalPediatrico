@@ -10,7 +10,7 @@ const Post = new mongoose.Schema({
         maxlength: 1000,
     },
     fecha: {
-        type: Number,
+        type: String,
         required: [true, "Tu post debe tener una fecha"],
         maxlength: 100,
         lowercase: true,

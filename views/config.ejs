@@ -1,79 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Config</title>
+    <title>Configuración</title>
     <link href="/css/Config.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/perfil.css">
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
 
 <body>
     <%-include('fragments/admin')%>
-    <section class="seccion-perfil-usuario">
-        <div class="#">
-            <div class="perfil-usuario-portada">
+        <section class="seccion-perfil-usuario">
+            <div class="#">
+                <div class="perfil-usuario-portada">
 
-                <form action="/cargarImagen" method="post" enctype="multipart/form-data">
-                    <div class="perfil-usuario-avatar">
-                        <div class="upload">
-                            <button type = "button" class = "boton-avatar">
-                              <i class = "fa fa-image"></i>    
-                                <input type="file" name="file" onchange="loadFile(event)" accept="image/*">
-                            </button>
+                    <form action="/cargarImagen" method="post" enctype="multipart/form-data">
+                        <div class="perfil-usuario-avatar">
+                            <div class="upload">
+                                <button type="button" class="boton-avatar">
+                                    <i class="fa fa-image"></i>
+                                    <input type="file" name="file" onchange="loadFile(event)" accept="image/*">
+                                </button>
+                            </div>
+
+                            <img src="/images/avatars/avatar.jpg" id="output" alt="img-avatar" style="height: 100%;">
+                            <script>
+                                let loadFile = function (event) {
+                                    let image = document.getElementById('output');
+                                    image.src = URL.createObjectURL(event.target.files[0]);
+                                }
+
+                            </script>
                         </div>
-                 
-                <img src="/images/avatars/avatar.jpg" id="output" alt="img-avatar" style="height: 100%;">
-                <script>
-                    let loadFile = function(event){
-                        let image = document.getElementById('output');
-                        image.src = URL.createObjectURL(event.target.files[0]);
-                    }
-    
-                </script>      
-            </div>
-                
-        </form> 
-        </div>
-    </div>
-
-    
-        <div class="perfil-usuario-body">
-            <div class="perfil-usuario-bio">
-                <h3 class="titulo">Administración</h3>
+                        <input type="submit" value="Cargar" class="bajar">
+                    </form>
+                </div>
             </div>
 
-            <div class="container">
-                <form class = "form-bonito" action="#" method="post">
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="titulo">Cambiar usuario:</label>
-                        </div>
-                        <div class="col-75">
-                            <input
-                                type="text"
-                                name="usuario"
-                                placeholder="Nuevo usuario.."
-                            />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="descripcion">Cambiar contraseña:</label>
-                        </div>
-                        <div class="col-75">
-                            <input
-                            type="text"
-                            name="contraseña"
-                            placeholder="Nueva contraseña.."
-                        />
-                        </div>
-                    </div>
-                   
-                    <div class="row align-items-center">
-                        <input  type="submit" value="Actualizar"  class="cargar" />
-                    </div>
-                </form>
-            </div>
 
-    </section>
+            <div class="perfil-usuario-body">
+                <div class="perfil-usuario-bio">
+                    <h3 class="titulo">Administración</h3>
+                </div>
+
+                <div class="container">
+                    <form class="form-bonito" action="#" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="titulo">Cambiar usuario:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="usuario" placeholder="Nuevo usuario.." />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="descripcion">Cambiar contraseña:</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="contraseña" placeholder="Nueva contraseña.." />
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center">
+                            <input type="submit" value="Cargar" class="cargar" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/vistaContacto.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <%-include('fragments/navbar.ejs',{data:data})%>
+    <section class="contact">
+        <div class="content">
+            <h2>Contactanos</h2>
+            <p>En ésta sección podes enviarnos tus consultas, sugerencias y preguntas.</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="text">
+                        <h3>Dirección</h3>
+                        <p>Av. Castro Barros 650</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="text">
+                        <h3>Teléfono</h3>
+                        <p>+54 11 5889-7130</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>tablock</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <h2>Envia tu consulta</h2>
+                <div id="errorMessage"></div>
+                <form action="" id="myForm" onsubmit="return validate();">
+                    <div class="inputBox">
+                        <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+                        <span>Nombre Completo</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="email" id="email" name="email" required>
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="tel" id="telefono" name="telefono" required>
+                        <span>Telefono</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea id="consulta" name="consulta" required></textarea>
+                        <span>Escribí tu consulta...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" id="consultaBtn" value="Enviar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="js/vistaContacto.js"></script>
+</body>
+</html>

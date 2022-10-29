@@ -1,14 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background-color:#F7F6FB;
+}
 .bajar{
   z-index: 100;
   position: relative;
-  margin-top: 400%;
+  margin-top: 350%;
   margin-left: 100%;
   background-color: #30499B;
-  color: rgb(255, 255, 255);
-  padding: 6px 10px;
+  color: #ffffff;
+  padding: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+}
 
+.bajar:hover{
+  background-color: #495c9c;
 }
 
 input[type=text], select, textarea{
@@ -28,10 +41,8 @@ label {
 
 /* Style the submit button */
 .cargar{
-  
   margin-top: 5%;
   background-color: #30499B;
-  color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -39,15 +50,18 @@ label {
   float: right;
   width: 50%;
   margin-left: 25%;
+  color: #F7F6FB;
 }
-
+.cargar:hover{
+  background-color: #495c9c;
+}
 /* Style the container */
 .form-bonito{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
   margin-top: 10%;
-  box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   margin-bottom: 7.5%;
 }
 
@@ -75,12 +89,14 @@ label {
 .obligatorio{
   color: #DB3937;
 }
-
+.align-items-center{
+  display: flex;
+  align-items: center;
+}
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75{
     width: 100%;
     margin-top: 0;
   }
- 
 }

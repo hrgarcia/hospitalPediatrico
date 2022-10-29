@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    position: sticky;
+    z-index: 1000;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95px;
+    flex-direction: row;
+    background-color:#edf7ff;
+    padding-left: 10%;
+    padding-right: 5%;
+    column-gap: 50px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: height 0.5s;
+}
+nav .logo{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    align-items: center;
+    padding-left: 5%;
+}
+.logo img{
+    width: 60px;
+    height: 60px;
+}
+.nombrePagina .programa{
+    font-size: 20px;
+}
+
+.nombrePagina .hospital{
+    font-size: 16px;
+}
+.mainBody{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 120px;  
+    justify-content: center;
+    align-items: center;
+    column-gap: 80px;
+    font-size: 17px;
+}
+.secciones{
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    column-gap: 80px;
+    font-weight: 400;
+    color:#1f1f1f;
+    align-items: center;
+    cursor: pointer;
+}
+.divisiones{
+    width: 110px;
+    position: relative;
+}
+.divisiones span{
+    width: 200px;
+}
+.secciones a{
+    text-decoration: none;
+    color:#1f1f1f;
+}
+.divisiones .menuDropdown{
+    display: none;
+}
+.divisiones:hover .menuDropdown{
+    display: block;
+    position: absolute;
+    top: 20px;
+    background-color:#edf7ff;
+    border-radius: 5px;
+}
+.menuDropdown .ul{
+    list-style: none;
+    margin-top: 5px;
+    display: block;
+}
+.menuDropdown .ul .li{
+    width: 160px;
+    padding: 15px;
+}
+.menuDropdown .ul .kinesiologia:hover{
+    background-color: #54e2417e;
+}
+.menuDropdown .ul .saludMental:hover{
+    background-color: #e241417e;
+}
+.menuDropdown .ul .neumonologia:hover{
+    background-color: #4167e27e;
+}
+.nombrePagina .programa{
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+.ingresoAdmin button{
+    width: 160px;
+    background-color:#5858d6;
+	border-radius:28px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#f8f6ff;
+	padding: 8px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+    transition: background-color 2s;
+}
+.ingresoAdmin a{
+    text-decoration: none;
+    color: #f8f6ff;
+}
+.ingresoAdmin button:hover{
+    background-color:#948adb;
+}
+.ingresoAdmin button:active{
+    position:relative;
+	top:1px;
+}
+.toggleButton{
+    display: none !important;
+    cursor: pointer;
+    font-size: 20px;
+    color:#4d63e0;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 2560px){
+    .logo img{
+        width: 90px;
+        height: 90px;
+    }
+    .nombrePagina{
+        width: 100%;
+        font-size: 22px;
+    }
+    .title{
+        font-size: 20px;
+        width: 100%;
+    }
+    .ingresoAdmin button{
+        width: 100%;
+        font-size: 18px;
+    }
+}
+@media only screen and (max-width: 2559px){
+    nav{
+        padding-left: 5%;
+        padding-right: 5%;
+        column-gap: 0px;
+    }
+    .nombrePagina{
+        font-size: 15px;
+    }
+    nav .logo{
+        width: 50%;
+    }
+    .logo img{
+        width: 60px;
+        height: 60px;
+    }
+    .mainBody{
+        padding-left: 5%;
+        column-gap: 40px;
+    }
+    .secciones{
+        column-gap: 40px;
+    }
+    .divisiones{
+        width: 110px;
+    }
+    .title{
+        font-size: 15px;
+    }
+    .ingresoAdmin button{
+        width: 160px;
+    }
+}
+@media only screen and (max-width: 1439px){
+    nav{
+        padding-left: 0%;
+        padding-right: 0%;
+        flex-direction: column;
+    }
+    nav .logo{
+        padding-top: 3%;
+        padding-bottom: 5%;
+        padding-left: 15%;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    }
+    .mainBody{
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding-left: 0%;
+        z-index: -1;
+    }
+    .secciones{
+        width: 100%;
+        margin-top: 8%;
+        flex-direction: column;
+        background-color: #edf7ff;
+    }
+    .toggleButton{
+        display: flex !important;
+        padding-left: 40%;
+    }
+    .title{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .ingresoAdmin{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #edf7ff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .active{
+        display: flex;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1440px){
+    .nombrePagina{
+        width: 300px;
+    }
+}
+@media only screen and (max-width: 1024px){
+    nav .logo{
+        padding-top: 3.5%;
+    }
+}
+@media only screen and (max-width: 1023px){
+    .secciones{
+        margin-top: 19%;
+    }
+    .toggleButton{
+        padding-left: 30%;
+    }
+}
+@media only screen and (max-width: 768px){
+    nav .logo{
+        padding-top: 5%;
+    }
+}
+@media only screen and (max-width: 767px){
+    nav .logo{
+        padding-left: 5%;
+        width: 90%;
+    }
+    .nombrePagina{
+        width: 250px;
+    }
+    .secciones{
+        margin-top: 36%;
+    }
+    .hospital{
+        display: none;
+    }
+}
+@media only screen and (max-width: 424px){
+    nav .logo{
+        padding-left: 2%;
+        column-gap: 15px;
+    }
+    .secciones{
+        margin-top: 42%;
+    }
+}
+@media only screen and (max-width: 374px){
+    .programa{
+        display: none;
+    }
+    .toggleButton{
+        padding-right: 5%;
+    }
+    .secciones{
+        margin-top: 50%;
+    }
+}
