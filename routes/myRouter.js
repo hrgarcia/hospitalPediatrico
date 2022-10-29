@@ -11,7 +11,7 @@ router.route("/logout").get(adminController.logout);
 router.route("/subirPost").get(adminController.postear2);
 router.route("/seccionAdmin").get(adminController.seccionAdmin);
 router.route("/postear").post(adminController.subirPost);
-router.route("'/editarpost/:id'").get(adminController.edicion)
+router.route("/editarpost/:id").get(adminController.edicionPostGET);
 router.route("/config").get(adminController.config);
 router.route("/ChangePassword").get(adminController.seccionAdmin).post(adminController.ChangePassword);
 router.route("/ChangeUser").get(adminController.seccionAdmin).post(adminController.ChangeUser);
