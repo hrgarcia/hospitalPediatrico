@@ -23,6 +23,5 @@ router.route("/neumonologia*").get(adminController.neumonologia);
 router.route("/verPostsUsuario").get(adminController.verPostsUsuario);
 router.route("/contactanos").get(adminController.contactanos);
 router.route("/eliminar/:id").get(adminController.eliminar);
-router.route("/contacto").get(adminController.contacto)
 router.route("/*").get(adminController.error404);
 module.exports = router;

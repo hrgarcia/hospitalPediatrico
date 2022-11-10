@@ -33,6 +33,19 @@ function validate(){
         errorMessage.innerHTML = errorText;
         return false;
     }
-    alert("Consulta enviada correctamente");
+
+    // isEnviar = false;
+    
+    // if(isEnviar == true){
+    //     Swal.fire({
+    //         position: "top-end",
+    //         icon: 'success',
+    //         text: "Se envio correctamente",
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //         width: 300,
+    //         padding: 0.5,
+    //     });
+    //     }
     return true;
 }
