@@ -33,19 +33,17 @@ function validate(){
         errorMessage.innerHTML = errorText;
         return false;
     }
-
-    // isEnviar = false;
-    
-    // if(isEnviar == true){
-    //     Swal.fire({
-    //         position: "top-end",
-    //         icon: 'success',
-    //         text: "Se envio correctamente",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //         width: 300,
-    //         padding: 0.5,
-    //     });
-    //     }
+    Swal.fire({
+        position: "top-end",
+        icon: 'success',
+        text: "Se envio correctamente",
+        showConfirmButton: false,
+        timer: 1500,
+        width: 300,
+        padding: 0.5,
+    });
+    setTimeout(() => {
+        console.log("pepe");
+    }, 5000);
     return true;
 }
